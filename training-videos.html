@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#d95b00">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Видео по настройкам">
+    <title>Видео по настройкам — ноутбуки HUAWEI, MSI и установка ПО на ТВ</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .card {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #d95b00;
+            padding: 20px 28px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .header-icon {
+            font-size: 3rem;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .bios-note {
+            background: #fff2e6;
+            margin: 0 25px 20px 25px;
+            padding: 12px 18px;
+            border-radius: 16px;
+            border-left: 5px solid #d95b00;
+            color: #3a2c21;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+        .bios-note span:first-child {
+            font-size: 1.2rem;
+        }
+        .bios-note strong {
+            color: #d95b00;
+            font-weight: 700;
+        }
+        .bios-note code {
+            background: #fff0e4;
+            padding: 2px 8px;
+            border-radius: 30px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #b34a00;
+        }
+
+        .content {
+            padding: 0 25px 25px 25px;
+        }
+
+        .videos-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 5px;
+        }
+
+        .video-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 380px;
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #e8e8e8;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            border-color: #f0d9cc;
+        }
+
+        .video-title {
+            background: #fffaf5;
+            padding: 14px 18px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #d95b00;
+            border-bottom: 2px solid #d95b00;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .video-title::before {
+            content: "▶";
+            font-size: 0.9rem;
+            color: #d95b00;
+        }
+
+        .video-wrapper {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            position: relative;
+            line-height: 0;
+            cursor: pointer;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        video {
+            width: 100%;
+            display: none;
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        /* Красивый плесхолдер с кнопкой */
+        .lazy-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            cursor: pointer;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        /* Красивый круг с иконкой Play */
+        .play-button-circle {
+            width: 80px;
+            height: 80px;
+            background: rgba(217, 91, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 20px rgba(217, 91, 0, 0.3);
+        }
+
+        .play-button-circle svg {
+            width: 32px;
+            height: 32px;
+            margin-left: 4px;
+            fill: white;
+        }
+
+        .lazy-placeholder:hover .play-button-circle {
+            transform: scale(1.15);
+            background: #d95b00;
+            box-shadow: 0 8px 30px rgba(217, 91, 0, 0.5);
+        }
+
+        /* Текст под кнопкой */
+        .placeholder-text {
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        .lazy-placeholder:hover .placeholder-text {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Маленькая подсказка */
+        .hint-text {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+            pointer-events: none;
+        }
+
+        @media (max-width: 700px) {
+            .content {
+                padding: 0 15px 20px 15px;
+            }
+            .bios-note {
+                margin: 0 15px 15px 15px;
+                padding: 10px 14px;
+                font-size: 0.75rem;
+            }
+            .header {
+                padding: 16px 20px;
+            }
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            .video-title {
+                padding: 10px 14px;
+                font-size: 1rem;
+            }
+            .play-button-circle {
+                width: 60px;
+                height: 60px;
+            }
+            .play-button-circle svg {
+                width: 24px;
+                height: 24px;
+            }
+            .placeholder-text {
+                margin-top: 14px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Анимация загрузки */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        video.active-video {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="header">
+        <div class="header-icon">📺</div>
+        <div>
+            <h1>Видео по настройкам</h1>
+        </div>
+    </div>
+    
+    <div class="bios-note">
+        <span>⚙️</span>
+        <span><strong>Для выхода в BIOS</strong> используются клавиши <code>F2</code> или <code>Del</code> (ПК обычно), если не помогает — <code>F8</code>, <code>F9</code>, <code>F11</code>, <code>F12</code> (редко).</span>
+    </div>
+
+    <div class="content">
+        <div class="videos-grid">
+            <!-- БЛОК 1: Ноутбуки HUAWEI -->
+            <div class="video-card">
+                <div class="video-title">Ноутбуки HUAWEI</div>
+                <div class="video-wrapper">
+                    <div class="lazy-placeholder" data-video-src="huawei_notebooks.mp4">
+                        <div class="play-button-circle">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <div class="placeholder-text">Запустить видео</div>
+                        <div class="hint-text">▶ Нажмите для воспроизведения</div>
+                    </div>
+                    <video preload="none" controls></video>
+                </div>
+            </div>
+
+            <!-- БЛОК 2: Ноутбуки MSI -->
+            <div class="video-card">
+                <div class="video-title">Ноутбуки MSI</div>
+                <div class="video-wrapper">
+                    <div class="lazy-placeholder" data-video-src="msi_notebooks.mp4">
+                        <div class="play-button-circle">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <div class="placeholder-text">Запустить видео</div>
+                        <div class="hint-text">▶ Нажмите для воспроизведения</div>
+                    </div>
+                    <video preload="none" controls></video>
+                </div>
+            </div>
+
+            <!-- БЛОК 3: Установка ПО на ТВ -->
+            <div class="video-card">
+                <div class="video-title">Установка ПО на ТВ</div>
+                <div class="video-wrapper">
+                    <div class="lazy-placeholder" data-video-src="tv_software_install.mp4">
+                        <div class="play-button-circle">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <div class="placeholder-text">Запустить видео</div>
+                        <div class="hint-text">▶ Нажмите для воспроизведения</div>
+                    </div>
+                    <video preload="none" controls></video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // Функция для ленивой загрузки видео
+        function setupLazyVideo(placeholder) {
+            const videoSrc = placeholder.getAttribute('data-video-src');
+            const wrapper = placeholder.parentElement;
+            const videoElement = wrapper.querySelector('video');
+            
+            if (!videoSrc || !videoElement) return;
+            
+            // При клике на плейсхолдер загружаем и запускаем видео
+            placeholder.addEventListener('click', function() {
+                // Устанавливаем источник видео
+                videoElement.src = videoSrc;
+                videoElement.load();
+                videoElement.classList.add('active-video');
+                
+                // Плавно скрываем плейсхолдер
+                placeholder.style.opacity = '0';
+                setTimeout(() => {
+                    placeholder.style.display = 'none';
+                }, 200);
+                
+                // Запускаем воспроизведение
+                const playPromise = videoElement.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(err => {
+                        console.log('Автовоспроизведение заблокировано браузером');
+                        // Показываем стандартные контролы, пользователь нажмёт Play сам
+                    });
+                }
+                
+                // Обработка ошибок
+                videoElement.addEventListener('error', function() {
+                    console.warn(`⚠️ Ошибка загрузки видео: ${videoSrc}`);
+                    placeholder.style.opacity = '1';
+                    placeholder.style.display = 'flex';
+                    const textEl = placeholder.querySelector('.placeholder-text');
+                    if (textEl) textEl.textContent = 'Ошибка загрузки видео';
+                    videoElement.classList.remove('active-video');
+                }, { once: true });
+            });
+        }
+        
+        // Находим все плейсхолдеры и настраиваем ленивую загрузку
+        const placeholders = document.querySelectorAll('.lazy-placeholder');
+        placeholders.forEach(setupLazyVideo);
+        
+        console.log('Страница загружена. Видео начнут загружаться после нажатия на кнопку.');
+    })();
+</script>
+</body>
+</html>
