@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Скрипт продавца: DEXP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            color: #1e2a3a;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .brand-header {
+            background: linear-gradient(135deg, #b84500 0%, #d95b00 100%);
+            color: white;
+            padding: 2rem 2rem 1.8rem;
+            border-bottom: 6px solid #ffb347;
+        }
+
+        .brand-header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .brand-header h1 small {
+            font-size: 1rem;
+            font-weight: 400;
+            background: rgba(255,255,255,0.2);
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            font-weight: 400;
+            border-left: 4px solid #ffb347;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 1.6rem 0 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 3px solid #d95b00;
+            display: inline-block;
+            color: #b84500;
+        }
+
+        .script-block {
+            background: #fef9f0;
+            border-left: 6px solid #d95b00;
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            margin: 1.2rem 0;
+        }
+
+        .script-question {
+            font-weight: 700;
+            color: #b84500;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .script-answer {
+            color: #1e2a3a;
+            margin-bottom: 0.75rem;
+        }
+
+        .script-note {
+            color: #8f774d;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #fff0e0;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #b84500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .feature-badge {
+            background: white;
+            border: 1.5px solid #ffce99;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-weight: 500;
+            color: #5a3e1f;
+            font-size: 0.9rem;
+        }
+
+        .insight-block {
+            background: #fff5e6;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 680px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .brand-header h1 {
+                font-size: 1.8rem;
+            }
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="brand-header">
+        <h1>DEXP <small>скрипт продавца</small></h1>
+        <div class="tagline">«Качество, которое может позволить себе каждый»</div>
+        <div style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.8;">🎯 для консультантов в отделе бытовой и электронной техники</div>
+    </div>
+
+    <div class="content">
+        <div class="insight-block">
+            <strong>🔑 Ключевые аргументы продавца (шпаргалка):</strong><br/>
+            <span class="badge">🇷🇺 Российский бренд</span>
+            <span class="badge">💰 То же качество за меньшие деньги</span>
+            <span class="badge">🏭 Прямые поставки без посредников</span>
+            <span class="badge">📢 Без наценки на рекламу</span>
+            <span class="badge">🌏 Производство на заводах мировых брендов</span>
+            <span class="badge">📺 КБТ, МБТ, компьютерная техника, ТВ</span>
+        </div>
+
+        <h2 class="section-title">📞 Этап 1: Установление контакта и выявление потребности</h2>
+        
+        <div class="script-block">
+            <div class="script-question">👋 Первая фраза:</div>
+            <div class="script-answer">«Здравствуйте! Вы присматриваете технику для дома? Обратите внимание на российский бренд DEXP. У них отличное качество, а цена приятно удивит. Давайте я расскажу подробнее?»</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❓ Уточняющие вопросы (выявить потребность):</div>
+            <div class="script-answer">• «Вы ищете крупную технику (холодильник, стиральную машину) или что-то из мелкой?»<br/>
+            • «Какой бюджет примерно рассматриваете?»<br/>
+            • «Какие функции для вас самые важные?»<br/>
+            • «Техника нужна срочно или планируете на будущее?»</div>
+            <div class="script-note">💡 Цель: понять, какую категорию техники ищет клиент, и подобрать оптимальную модель.</div>
+        </div>
+
+        <h2 class="section-title">💎 Этап 2: Презентация с опорой на ключевые преимущества</h2>
+
+        <div class="script-block">
+            <div class="script-question">💰 О цене (главное преимущество):</div>
+            <div class="script-answer">«Самое интересное в DEXP — это соотношение цены и качества. Техника стоит заметно дешевле, чем у известных брендов, но по функционалу и качеству она им не уступает. Как так получается? DEXP работает напрямую с заводами в Китае, Тайване, Вьетнаме — без посредников. Плюс они не тратят деньги на рекламу. Вся экономия идёт в цену для вас».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🏭 О качестве и производстве (если клиент сомневается):</div>
+            <div class="script-answer">«Вы знаете, техника DEXP производится на тех же фабриках, где делают устройства для многих известных мировых брендов. Те же линии, те же стандарты контроля. Разница только в наклейке и цене».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🔧 О широте ассортимента:</div>
+            <div class="script-answer">«У DEXP очень широкий выбор — телевизоры, крупная бытовая техника (холодильники, стиральные машины), мелкая бытовая техника, компьютеры и ноутбуки. Можно подобрать технику под любые задачи и бюджет. И всё с одинаково хорошим соотношением цены и качества».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🛠️ О контроле качества (надёжность):</div>
+            <div class="script-answer">«Сейчас над каждым продуктом DEXP работают инженеры-тестировщики, продуктовые менеджеры, бренд-менеджеры, дизайнеры. Каждый товар проходит тщательный отбор, прежде чем попасть на полки магазинов. Это не просто «дешёвая техника» — это продуманный продукт».</div>
+        </div>
+
+        <h2 class="section-title">🚫 Этап 3: Работа с частыми возражениями</h2>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Дешёвое — значит некачественное».</div>
+            <div class="script-answer">«Я понимаю ваше сомнение. Но здесь низкая цена достигается не за счёт плохих материалов или сборки. DEXP просто не платит посредникам и не закладывает в цену огромные рекламные бюджеты. По качеству они на том же уровне, что и известные бренды. Давайте сравним характеристики — вы сами увидите».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Лучше куплю Samsung/LG/Bosch, они проверенные».</div>
+            <div class="script-answer">«Конечно, это отличные бренды. Но DEXP — это история про то, чтобы не переплачивать. Та же функциональность, то же качество сборки (потому что фабрики одни и те же), а цена ниже на 30–40%. Если для вас важен бюджет, DEXP — очень разумный выбор. И гарантия такая же, как у А-брендов».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Российский бренд — значит, что-то не так?»</div>
+            <div class="script-answer">«Наоборот, российский бренд — это плюс. DEXP уже 10 лет на рынке, начали во Владивостоке, сейчас это зрелая компания с серьёзным подходом к качеству. Они хорошо понимают нашего покупателя и адаптируют технику под наши реалии. И сервисная поддержка у них своя, на месте».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «А вдруг сломается, где ремонтировать?»</div>
+            <div class="script-answer">«У DEXP есть официальные сервисные центры по всей стране. Гарантийное обслуживание работает штатно. И знаете, статистика по браку у них не выше, чем у раскрученных брендов. Потому что контроль качества очень строгий. Так что можете не переживать».</div>
+        </div>
+
+        <h2 class="section-title">✅ Этап 4: Завершение сделки</h2>
+
+        <div class="script-block">
+            <div class="script-question">🔔 Фразы для закрытия продажи:</div>
+            <div class="script-answer">• «Эта модель идеально подходит под ваши задачи. Оформляем?»<br/>
+            • «Отличный выбор за эти деньги. Я провожу вас на кассу?»<br/>
+            • «Думаю, вы не пожалеете. Давайте упаковывать?»</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🎁 Дополнительные продажи (апсейл):</div>
+            <div class="script-answer">«К этому телевизору рекомендуем взять фирменное крепление на стену — оно надёжное и недорогое. Или, если берёте стиральную машину, посмотрите наши фильтры для воды и средства для ухода. Добавим в чек?»</div>
+        </div>
+
+        <h2 class="section-title">📌 Памятка продавцу (коротко)</h2>
+        <div class="feature-list">
+            <span class="feature-badge">1️⃣ Выявить, какую технику ищет клиент</span>
+            <span class="feature-badge">2️⃣ Сделать акцент: то же качество за меньшие деньги</span>
+            <span class="feature-badge">3️⃣ Объяснить экономию: прямые поставки, нет рекламы</span>
+            <span class="feature-badge">4️⃣ Сказать про фабрики: те же, что у мировых брендов</span>
+            <span class="feature-badge">5️⃣ Снять возражение про Китай (мировые стандарты)</span>
+            <span class="feature-badge">6️⃣ Упомянуть тщательный отбор и контроль качества</span>
+            <span class="feature-badge">7️⃣ Закрывать уверенно: «Оформляем? На кассу?»</span>
+        </div>
+
+        <div class="insight-block" style="text-align: center; margin-top: 2rem;">
+            💬 <strong>Золотая фраза в конце разговора:</strong><br/>
+            «Качество, которое может позволить себе каждый — DEXP!»
+        </div>
+    </div>
+</div>
+</body>
+</html>
