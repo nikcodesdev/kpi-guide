@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Скрипт продавца: EIGEN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            color: #1e2a3a;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .brand-header {
+            background: linear-gradient(135deg, #b84500 0%, #d95b00 100%);
+            color: white;
+            padding: 2rem 2rem 1.8rem;
+            border-bottom: 6px solid #ffb347;
+        }
+
+        .brand-header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .brand-header h1 small {
+            font-size: 1rem;
+            font-weight: 400;
+            background: rgba(255,255,255,0.2);
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            font-weight: 400;
+            border-left: 4px solid #ffb347;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 1.6rem 0 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 3px solid #d95b00;
+            display: inline-block;
+            color: #b84500;
+        }
+
+        .script-block {
+            background: #fef9f0;
+            border-left: 6px solid #d95b00;
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            margin: 1.2rem 0;
+        }
+
+        .script-question {
+            font-weight: 700;
+            color: #b84500;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .script-answer {
+            color: #1e2a3a;
+            margin-bottom: 0.75rem;
+        }
+
+        .script-note {
+            color: #8f774d;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #fff0e0;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #b84500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .feature-badge {
+            background: white;
+            border: 1.5px solid #ffce99;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-weight: 500;
+            color: #5a3e1f;
+            font-size: 0.9rem;
+        }
+
+        .insight-block {
+            background: #fff5e6;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 680px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .brand-header h1 {
+                font-size: 1.8rem;
+            }
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="brand-header">
+        <h1>EIGEN <small>скрипт продавца</small></h1>
+        <div class="tagline">«Eigen — начало хорошей истории»</div>
+        <div style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.8;">🎯 для консультантов в отделе бытовой техники</div>
+    </div>
+
+    <div class="content">
+        <div class="insight-block">
+            <strong>🔑 Ключевые аргументы продавца (шпаргалка):</strong><br/>
+            <span class="badge">🇷🇺 Российский бренд</span>
+            <span class="badge">🎨 Скандинавский дизайн</span>
+            <span class="badge">📦 Расширенная гарантия</span>
+            <span class="badge">🔇 Тихая работа</span>
+            <span class="badge">⚡ Энергоэффективность</span>
+            <span class="badge">🏆 Качественная сборка</span>
+            <span class="badge">🛠️ Простота эксплуатации</span>
+        </div>
+
+        <h2 class="section-title">📞 Этап 1: Установление контакта и выявление потребности</h2>
+        
+        <div class="script-block">
+            <div class="script-question">👋 Первая фраза:</div>
+            <div class="script-answer">«Здравствуйте! Вы присматриваете технику для дома? Обратите внимание на бренд Eigen — это российский бренд, который делает технику в скандинавском стиле. Очень стильно, надёжно и с расширенной гарантией. Давайте покажу?»</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❓ Уточняющие вопросы (выявить потребность):</div>
+            <div class="script-answer">• «Для кухни или для дома в целом ищете технику?»<br/>
+            • «Какой дизайн предпочитаете — классический, современный, скандинавский?»<br/>
+            • «Для вас важна тихая работа и экономия электроэнергии?»<br/>
+            • «Планируете обновлять кухню или собираете интерьер с нуля?»</div>
+            <div class="script-note">💡 Цель: понять, какие критерии для клиента самые важные — дизайн, функционал, тишина или экономия.</div>
+        </div>
+
+        <h2 class="section-title">💎 Этап 2: Презентация с опорой на ключевые преимущества</h2>
+
+        <div class="script-block">
+            <div class="script-question">🎨 О дизайне (главное преимущество):</div>
+            <div class="script-answer">«Eigen — это техника в скандинавском стиле: визуальная простота, чёткие линии, неброская элегантность. Она отлично впишется в современный интерьер, как на картинках из Pinterest или каталогов IKEA. Разные категории техники сочетаются между собой — одинаковые дисплеи, шрифты, цвет ручек и фасадов. Вся кухня будет выглядеть как единое целое».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🔧 О функциональности и надёжности:</div>
+            <div class="script-answer">«Eigen — это ваш тихий помощник, как дворецкий. Техника работает очень тихо, не отвлекает. При этом у неё широкие функциональные возможности и точная настройка. Можно регулировать параметры под свои задачи. И всё это — с высококачественной сборкой и материалами».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">📦 О гарантии (преимущество перед конкурентами):</div>
+            <div class="script-answer">«Eigen даёт расширенную гарантию — больше, чем у конкурентов. Это говорит о том, что бренд уверен в своей технике. Вы получаете не просто красивый прибор, а спокойствие на несколько лет вперёд. Если что-то случится — мы на связи».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">⚡ Об энергоэффективности и экономии:</div>
+            <div class="script-answer">«Техника Eigen экономит электроэнергию — это заметно по счетам. Плюс она проста в эксплуатации: интуитивно понятное управление, не нужно изучать толстые инструкции. Всё работает на ваш комфорт».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">💬 О миссии бренда (эмоциональная связь):</div>
+            <div class="script-answer">«Знаете, у Eigen красивая миссия: сделать как можно больше семей счастливыми и уверенными в завтрашнем дне. Подарить каждой семье свой островок стабильности, где всё работает на ваш комфорт. Покупая эту технику, вы покупаете не просто приборы, а уют и спокойствие».</div>
+        </div>
+
+        <h2 class="section-title">🚫 Этап 3: Работа с частыми возражениями</h2>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Дороговато для российского бренда».</div>
+            <div class="script-answer">«Понимаю. Но здесь цена соответствует качеству и дизайну. Eigen — это не бюджетный сегмент, а разумный выбор для тех, кто хочет стильный интерьер и надёжность, но не готов переплачивать за раскрученные европейские бренды. По функционалу и материалам Eigen не уступает А-брендам, а по дизайну даже превосходит. Плюс расширенная гарантия — это тоже чего-то стоит».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Лучше куплю Bosch/Siemens/Miele».</div>
+            <div class="script-answer">«Это отличные бренды, без вопросов. Но Eigen — это альтернатива для тех, кто ценит скандинавский стиль и не хочет переплачивать 30–50% только за имя. По качеству сборки и материалов Eigen на том же уровне. Посмотрите сами — нержавеющая сталь, калёное стекло, аккуратные швы. А дизайн — простота и элегантность, как в скандинавских интерьерах. Рекомендую сравнить».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Почему не взять технику подешевле, без дизайна?»</div>
+            <div class="script-answer">«Если для вас важен только функционал — можно и дешевле. Но техника — это часть интерьера на годы. С Eigen вы получаете эстетическое удовольствие каждый день. Согласитесь, приятнее находиться на кухне, где всё гармонично и стильно. И потом, когда будете продавать квартиру или делать ремонт — такая техника будет плюсом».</div>
+        </div>
+
+        <h2 class="section-title">✅ Этап 4: Завершение сделки</h2>
+
+        <div class="script-block">
+            <div class="script-question">🔔 Фразы для закрытия продажи:</div>
+            <div class="script-answer">• «Эта модель отлично впишется в ваш интерьер. Оформляем?»<br/>
+            • «Вы выбрали надёжную и стильную технику. Я провожу вас на кассу?»<br/>
+            • «С этой техникой ваша кухня будет выглядеть как на картинке. Давайте упаковывать?»</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🎁 Дополнительные продажи (апсейл):</div>
+            <div class="script-answer">«К этой плите рекомендуем взять вытяжку из той же серии — они будут идеально сочетаться. Или, если берёте холодильник, посмотрите наши фирменные контейнеры для хранения — они тоже в скандинавском стиле. Добавим в чек?»</div>
+        </div>
+
+        <h2 class="section-title">📌 Памятка продавцу (коротко)</h2>
+        <div class="feature-list">
+            <span class="feature-badge">1️⃣ Выявить приоритет клиента (дизайн/тишина/функции)</span>
+            <span class="feature-badge">2️⃣ Сделать акцент на скандинавском дизайне</span>
+            <span class="feature-badge">3️⃣ Упомянуть расширенную гарантию</span>
+            <span class="feature-badge">4️⃣ Рассказать про тихую работу и энергоэффективность</span>
+            <span class="feature-badge">5️⃣ Снять возражение про цену (качество vs бюджет)</span>
+            <span class="feature-badge">6️⃣ Подчеркнуть единый стиль во всей линейке</span>
+            <span class="feature-badge">7️⃣ Закрывать уверенно: «Оформляем? На кассу?»</span>
+        </div>
+
+        <div class="insight-block" style="text-align: center; margin-top: 2rem;">
+            💬 <strong>Золотая фраза в конце разговора:</strong><br/>
+            «Eigen — начало хорошей истории для вашего дома!»
+        </div>
+    </div>
+</div>
+</body>
+</html>
