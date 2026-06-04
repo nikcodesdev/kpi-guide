@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Скрипт продавца: REOKA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            color: #1e2a3a;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .brand-header {
+            background: linear-gradient(135deg, #b84500 0%, #d95b00 100%);
+            color: white;
+            padding: 2rem 2rem 1.8rem;
+            border-bottom: 6px solid #ffb347;
+        }
+
+        .brand-header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .brand-header h1 small {
+            font-size: 1rem;
+            font-weight: 400;
+            background: rgba(255,255,255,0.2);
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            font-weight: 400;
+            border-left: 4px solid #ffb347;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 1.6rem 0 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 3px solid #d95b00;
+            display: inline-block;
+            color: #b84500;
+        }
+
+        .script-block {
+            background: #fef9f0;
+            border-left: 6px solid #d95b00;
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            margin: 1.2rem 0;
+        }
+
+        .script-question {
+            font-weight: 700;
+            color: #b84500;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .script-answer {
+            color: #1e2a3a;
+            margin-bottom: 0.75rem;
+        }
+
+        .script-note {
+            color: #8f774d;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #fff0e0;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #b84500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .feature-badge {
+            background: white;
+            border: 1.5px solid #ffce99;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-weight: 500;
+            color: #5a3e1f;
+            font-size: 0.9rem;
+        }
+
+        .insight-block {
+            background: #fff5e6;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 680px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .brand-header h1 {
+                font-size: 1.8rem;
+            }
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="brand-header">
+        <h1>REOKA <small>скрипт продавца</small></h1>
+        <div class="tagline">«Уделите время себе, об остальном позаботится Reoka!»</div>
+        <div style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.8;">🎯 для консультантов в торговом зале</div>
+    </div>
+
+    <div class="content">
+        <!-- Шпаргалка по ключевым аргументам -->
+        <div class="insight-block">
+            <strong>🔑 Ключевые аргументы продавца (шпаргалка):</strong><br/>
+            <span class="badge">🇷🇺 Российский бренд</span>
+            <span class="badge">💰 Цена ниже A-брендов</span>
+            <span class="badge">🔧 3 в 1 (мясорубка+овощерезка+соковыжималка)</span>
+            <span class="badge">🔩 Нержавеющая сталь SUS304</span>
+            <span class="badge">🥛 Каленое стекло</span>
+            <span class="badge">📦 Гарантия до 18 месяцев</span>
+            <span class="badge">📉 Брак &lt;0.8%</span>
+        </div>
+
+        <h2 class="section-title">📞 Этап 1: Установление контакта и выявление потребности</h2>
+        
+        <div class="script-block">
+            <div class="script-question">👋 Первая фраза:</div>
+            <div class="script-answer">«Здравствуйте! Вы присматриваете технику для кухни? У нас есть отличная новинка — российский бренд Reoka. Обратите внимание, качество как у известных европейских марок, а цена значительно приятнее. Давайте я покажу?»</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❓ Уточняющие вопросы (выявить потребность):</div>
+            <div class="script-answer">• «Вы ищете технику для себя или в подарок?»<br/>
+            • «Какую задачу должна решать — часто готовите мясо, любите свежесмолотый кофе или сушите овощи/фрукты?»<br/>
+            • «Важно ли для вас, чтобы устройство занимало мало места?»<br/>
+            • «Обращаете внимание на материалы — например, чтобы нержавейка была качественной?»</div>
+            <div class="script-note">💡 Цель: понять, какую именно проблему клиент хочет решить, и подобрать нужную модель.</div>
+        </div>
+
+        <h2 class="section-title">💎 Этап 2: Презентация с опорой на ключевые преимущества</h2>
+
+        <div class="script-block">
+            <div class="script-question">🎯 О качестве и материалах (если клиент сомневается):</div>
+            <div class="script-answer">«Reoka использует настоящую нержавеющую сталь марки SUS304 — это японский стандарт, который гарантирует, что в еду не попадут вредные вещества. А для деталей, которые контактируют с пищей, применяется пищевой полипропилен. Никаких посторонних привкусов и запахов, можете не переживать».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🔄 О мультифункциональности (экономия места и денег):</div>
+            <div class="script-answer">«Посмотрите на эту модель — она заменяет сразу три прибора: мясорубку, овощерезку и соковыжималку. Представьте, сколько места вы сэкономите на кухне и сколько денег — не придётся покупать три отдельных устройства. Это очень удобно для городской квартиры».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🏭 О производстве и надёжности (сравнение с A-брендами):</div>
+            <div class="script-answer">«Reoka производится на тех же заводах в Китае, где делают технику для американского рынка под брендами типа SENCOR, VITEK, Westinghouse. Разница только в том, что мы работаем напрямую с фабрикой — без наценок дистрибьюторов и без переплаты за „громкое имя“. Поэтому вы получаете качество как у Braun или Philips, но дешевле на 30–40%».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">📦 О гарантии и проценте брака (снять возражения):</div>
+            <div class="script-answer">«Гарантия на эту модель — 18 месяцев. Это стандарт для A-брендов. А уровень брака у Reoka мы держим на уровне ниже 0,8% — то есть из 125 проданных устройств только одно может потребовать сервисного обслуживания. Это очень надёжный показатель, не хуже, чем у лидеров рынка».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🎨 О дизайне и упаковке (если клиент эстет):</div>
+            <div class="script-answer">«Обратите внимание на стильный дизайн — металлик + чёрный матовый пластик с soft-touch покрытием. Техника будет красиво смотреться на любой кухне. И даже коробка выглядит презентабельно — если покупаете в подарок, это важный момент. Внутри всё аккуратно упаковано, с ограничителями, плюс есть русская инструкция».</div>
+        </div>
+
+        <h2 class="section-title">🚫 Этап 3: Работа с частыми возражениями</h2>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Дорого для российского бренда. Почему не взять дешевле?»</div>
+            <div class="script-answer">«Давайте сравним. Дешёвые аналоги часто используют обычный пластик, который со временем желтеет и может трескаться, а ножи там из мягкой стали, быстро тупятся. У Reoka — нержавейка SUS304, калёное стекло, усиленный мотор. Вы платите за долговечность и безопасность. В дешёвых приборах через полгода придётся менять детали, а этот прослужит годы».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Лучше куплю Philips/Bosch, они проверенные».</div>
+            <div class="script-answer">«Я понимаю, доверие к известным брендам — это важно. Но знаете, Reoka собирается на тех же контрактных фабриках, где делают технику для этих компаний. Разница только в наклейке. Вы можете проверить сами — сравните вес, материалы, качество сборки. При этом вы не переплачиваете 30–50% только за название. А гарантия такая же — 18 месяцев. Подумайте о выгоде».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «А вдруг сломается, где ремонтировать?»</div>
+            <div class="script-answer">«У нас есть авторизованные сервисные центры по всему городу. По гарантии ремонт бесплатный. К тому же, повторюсь, статистика брака очень низкая — меньше 0,8%. То есть 99,2% покупателей никогда не сталкиваются с поломками. Но если что-то пойдёт не так, мы на связи и поможем».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Не нравится, что сделано в Китае».</div>
+            <div class="script-answer">«Половина мировых брендов, включая Apple и Samsung, производят в Китае. Важно не где, а как и под чьим контролем. На заводах Reoka строгий контроль качества — и эти фабрики делают технику на экспорт в США и Европу по самым высоким стандартам. Так что „сделано в Китае“ в случае Reoka — это плюс, а не минус: высокая технологичность и отлаженное производство».</div>
+        </div>
+
+        <h2 class="section-title">✅ Этап 4: Завершение сделки</h2>
+
+        <div class="script-block">
+            <div class="script-question">🔔 Фразы для закрытия продажи:</div>
+            <div class="script-answer">• «Давайте я упакую эту модель — она идеально подходит под ваши задачи, правда?»<br/>
+            • «С этой техникой вы сэкономите время и силы. Оформлять будем?»<br/>
+            • «Вы выбрали отличный вариант. На кассу сейчас пройдём? Я всё покажу».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🎁 Дополнительные продажи (апсейл):</div>
+            <div class="script-answer">«К этой мясорубке рекомендуем взять дополнительные насадки для печенья и колбас — они расширят возможности. Или, если берёте кофеварку, посмотрите наш фирменный кофе — сейчас на него акция. Добавим в чек?»</div>
+        </div>
+
+        <h2 class="section-title">📌 Памятка продавцу (коротко)</h2>
+        <div class="feature-list">
+            <span class="feature-badge">1️⃣ Выявить потребность</span>
+            <span class="feature-badge">2️⃣ Сделать акцент на качестве материалов (SUS304)</span>
+            <span class="feature-badge">3️⃣ Упомянуть мультифункциональность (3 в 1)</span>
+            <span class="feature-badge">4️⃣ Сравнить с A-брендами по цене/качеству</span>
+            <span class="feature-badge">5️⃣ Назвать гарантию 18 месяцев и брак &lt;0.8%</span>
+            <span class="feature-badge">6️⃣ Снять возражение про Китай (заводы мировых брендов)</span>
+            <span class="feature-badge">7️⃣ Закрывать сделку уверенно</span>
+        </div>
+
+        <div class="insight-block" style="text-align: center; margin-top: 2rem;">
+            💬 <strong>Золотая фраза в конце разговора:</strong><br/>
+            «Уделите время себе, об остальном позаботится Reoka!»
+        </div>
+    </div>
+</div>
+</body>
+</html>
