@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Скрипт продавца: FIERO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            color: #1e2a3a;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .brand-header {
+            background: linear-gradient(135deg, #b84500 0%, #d95b00 100%);
+            color: white;
+            padding: 2rem 2rem 1.8rem;
+            border-bottom: 6px solid #ffb347;
+        }
+
+        .brand-header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .brand-header h1 small {
+            font-size: 1rem;
+            font-weight: 400;
+            background: rgba(255,255,255,0.2);
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            font-weight: 400;
+            border-left: 4px solid #ffb347;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 1.6rem 0 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 3px solid #d95b00;
+            display: inline-block;
+            color: #b84500;
+        }
+
+        .script-block {
+            background: #fef9f0;
+            border-left: 6px solid #d95b00;
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            margin: 1.2rem 0;
+        }
+
+        .script-question {
+            font-weight: 700;
+            color: #b84500;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .script-answer {
+            color: #1e2a3a;
+            margin-bottom: 0.75rem;
+        }
+
+        .script-note {
+            color: #8f774d;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #fff0e0;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #b84500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .feature-badge {
+            background: white;
+            border: 1.5px solid #ffce99;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-weight: 500;
+            color: #5a3e1f;
+            font-size: 0.9rem;
+        }
+
+        .insight-block {
+            background: #fff5e6;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 680px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .brand-header h1 {
+                font-size: 1.8rem;
+            }
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="brand-header">
+        <h1>FIERO <small>скрипт продавца</small></h1>
+        <div class="tagline">«Fiero – сделай момент ярче!»</div>
+        <div style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.8;">🎯 для консультантов в отделе аудиотехники</div>
+    </div>
+
+    <div class="content">
+        <div class="insight-block">
+            <strong>🔑 Ключевые аргументы продавца (шпаргалка):</strong><br/>
+            <span class="badge">🇷🇺 Российский бренд</span>
+            <span class="badge">🔊 Мощный и чистый звук</span>
+            <span class="badge">💰 Доступная цена</span>
+            <span class="badge">💧 Пыле- и влагозащита (IP)</span>
+            <span class="badge">🎨 Стильный дизайн</span>
+            <span class="badge">🏭 Производство на заводах мировых брендов</span>
+            <span class="badge">🎧 Широкий ассортимент</span>
+        </div>
+
+        <h2 class="section-title">📞 Этап 1: Установление контакта и выявление потребности</h2>
+        
+        <div class="script-block">
+            <div class="script-question">👋 Первая фраза:</div>
+            <div class="script-answer">«Здравствуйте! Вы присматриваете колонки или наушники? Обратите внимание на российский бренд Fiero — мощный и чистый звук по доступной цене. Давайте покажу, что подойдёт именно вам?»</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❓ Уточняющие вопросы (выявить потребность):</div>
+            <div class="script-answer">• «Для каких целей ищете аудиотехнику — для дома, для улицы, для спорта или для автозвука?»<br/>
+            • «Какой формат предпочитаете — портативная колонка, наушники (TWS или накладные) или аудиосистема?»<br/>
+            • «Важна ли для вас защита от воды и пыли (для пляжа, походов)?»<br/>
+            • «Какой бюджет примерно рассматриваете?»</div>
+            <div class="script-note">💡 Цель: понять сценарий использования и подобрать нужный тип устройства.</div>
+        </div>
+
+        <h2 class="section-title">💎 Этап 2: Презентация с опорой на ключевые преимущества</h2>
+
+        <div class="script-block">
+            <div class="script-question">🔊 О качестве звука (главное преимущество):</div>
+            <div class="script-answer">«Главное в Fiero — это мощный и чистый звук. Бренд специально создавался, чтобы показать, что качественное звучание может быть доступно каждому. Не переплачивайте за раскрученное имя — здесь вы получаете отличный звук за разумные деньги».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">💧 О пыле- и влагозащите (для активного образа жизни):</div>
+            <div class="script-answer">«Портативные колонки Fiero имеют высокую степень пыле- и влагозащиты. Их можно брать с собой на пляж, в поход, на дачу — не боится ни дождя, ни песка, ни брызг. Отличный вариант для тех, кто любит музыку в любых условиях».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🏭 О производстве и надёжности:</div>
+            <div class="script-answer">«Fiero производится на заводах в Китае, которые являются лидерами в создании аудиотехники. На этих же фабриках делают устройства для известных брендов: Sven, Defender, Redragon, DAEWOO, Tronsmart. То есть качество сборки — на высоком уровне, проверенное годами».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🎧 О широте ассортимента:</div>
+            <div class="script-answer">«У Fiero очень большой выбор: портативные колонки разных размеров, аудиосистемы, наушники (TWS, накладные, вкладыши), микрофоны и стойки. И недавно вышла новая линейка автозвука. Можно подобрать под любой запрос и бюджет».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🎨 О дизайне (если клиент обращает внимание на внешний вид):</div>
+            <div class="script-answer">«Fiero — это ещё и стильно. Колонки выглядят современно, есть разные цвета и формы. Они не стыдно поставить на видное место или подарить. Бренд делает акцент на эстетике, чтобы устройство радовало не только звуком, но и внешним видом».</div>
+        </div>
+
+        <h2 class="section-title">🚫 Этап 3: Работа с частыми возражениями</h2>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Дешёвый китайский бренд, звук наверное плохой».</div>
+            <div class="script-answer">«Понимаю ваше сомнение. Но Fiero — российский бренд с контролем качества. Производство на тех же фабриках, что и у Sven, Defender и других известных марок. Звук — чистый и мощный, можете сами оценить. Давайте включим прямо сейчас — убедитесь».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Лучше куплю JBL/Sony, они проверенные».</div>
+            <div class="script-answer">«JBL и Sony — отличные бренды, без вопросов. Но Fiero — это история про то, чтобы не переплачивать. За ту же цену, что у JBL за самую простую модель, у Fiero можно взять топовую колонку с защитой IP и мощным звуком. По качеству звука они сопоставимы, проверьте сами. А сэкономленные деньги можно потратить на что-то ещё».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «А вдруг сломается, где ремонтировать?»</div>
+            <div class="script-answer">«У нас есть официальная гарантия и сервисная поддержка. Fiero — это не одноразовый товар. Если что-то случится — обращайтесь, поможем. Плюс статистика поломок очень низкая, потому что контроль качества строгий».</div>
+        </div>
+
+        <h2 class="section-title">✅ Этап 4: Завершение сделки</h2>
+
+        <div class="script-block">
+            <div class="script-question">🔔 Фразы для закрытия продажи:</div>
+            <div class="script-answer">• «Эта модель отлично подходит под ваши задачи. Оформляем?»<br/>
+            • «Хороший выбор — мощный звук и защита от воды. Я провожу вас на кассу?»<br/>
+            • «С этой колонкой ваши моменты станут ярче. Давайте упаковывать?»</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🎁 Дополнительные продажи (апсейл):</div>
+            <div class="script-answer">«К этой колонке рекомендуем взять чехол для переноски — удобно брать с собой. Или, если берёте наушники, посмотрите наш фирменный пауэрбанк — заряжать их в дороге. Добавим в чек?»</div>
+        </div>
+
+        <h2 class="section-title">📌 Памятка продавцу (коротко)</h2>
+        <div class="feature-list">
+            <span class="feature-badge">1️⃣ Выявить сценарий использования (дом/улица/спорт/авто)</span>
+            <span class="feature-badge">2️⃣ Сделать акцент на мощном и чистом звуке</span>
+            <span class="feature-badge">3️⃣ Упомянуть пыле- и влагозащиту (для портативных колонок)</span>
+            <span class="feature-badge">4️⃣ Рассказать про производство на фабриках мировых брендов</span>
+            <span class="feature-badge">5️⃣ Снять возражение про Китай (качество на уровне)</span>
+            <span class="feature-badge">6️⃣ Сравнить с A-брендами по цене (выгода 30–50%)</span>
+            <span class="feature-badge">7️⃣ Закрывать уверенно: «Оформляем? На кассу?»</span>
+        </div>
+
+        <div class="insight-block" style="text-align: center; margin-top: 2rem;">
+            💬 <strong>Золотая фраза в конце разговора:</strong><br/>
+            «Fiero – сделай момент ярче!»
+        </div>
+    </div>
+</div>
+</body>
+</html>
