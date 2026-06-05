@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Скрипт продавца: ONETWO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            color: #1e2a3a;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .brand-header {
+            background: linear-gradient(135deg, #b84500 0%, #d95b00 100%);
+            color: white;
+            padding: 2rem 2rem 1.8rem;
+            border-bottom: 6px solid #ffb347;
+        }
+
+        .brand-header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .brand-header h1 small {
+            font-size: 1rem;
+            font-weight: 400;
+            background: rgba(255,255,255,0.2);
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            font-weight: 400;
+            border-left: 4px solid #ffb347;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 1.6rem 0 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 3px solid #d95b00;
+            display: inline-block;
+            color: #b84500;
+        }
+
+        .script-block {
+            background: #fef9f0;
+            border-left: 6px solid #d95b00;
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            margin: 1.2rem 0;
+        }
+
+        .script-question {
+            font-weight: 700;
+            color: #b84500;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .script-answer {
+            color: #1e2a3a;
+            margin-bottom: 0.75rem;
+        }
+
+        .script-note {
+            color: #8f774d;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #fff0e0;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #b84500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .feature-badge {
+            background: white;
+            border: 1.5px solid #ffce99;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-weight: 500;
+            color: #5a3e1f;
+            font-size: 0.9rem;
+        }
+
+        .insight-block {
+            background: #fff5e6;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 680px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .brand-header h1 {
+                font-size: 1.8rem;
+            }
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="brand-header">
+        <h1>ONETWO <small>скрипт продавца</small></h1>
+        <div class="tagline">«Ван Ту» — один-два</div>
+        <div style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.8;">🎯 для консультантов в отделе посуды и кухонных принадлежностей</div>
+    </div>
+
+    <div class="content">
+        <div class="insight-block">
+            <strong>🔑 Ключевые аргументы продавца (шпаргалка):</strong><br/>
+            <span class="badge">🇷🇺 Российский СТМ бренд</span>
+            <span class="badge">🏆 Высочайшее качество</span>
+            <span class="badge">🎨 Современный дизайн</span>
+            <span class="badge">✋ Эргономичная форма</span>
+            <span class="badge">💰 Лучшее соотношение цена/качество</span>
+            <span class="badge">🔒 Безопасные материалы</span>
+            <span class="badge">📦 Индивидуальная стильная упаковка</span>
+        </div>
+
+        <h2 class="section-title">📞 Этап 1: Установление контакта и выявление потребности</h2>
+        
+        <div class="script-block">
+            <div class="script-question">👋 Первая фраза:</div>
+            <div class="script-answer">«Здравствуйте! Вы присматриваете посуду или кухонные аксессуары? Обратите внимание на бренд OneTwo — высочайшее качество, современный дизайн и очень продуманная эргономика. При этом цена приятно удивит. Давайте покажу?»</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❓ Уточняющие вопросы (выявить потребность):</div>
+            <div class="script-answer">• «Для себя ищете или в подарок?»<br/>
+            • «Какая посуда нужна — сковороды, кастрюли, формы для запекания или что-то конкретное?»<br/>
+            • «Важен ли дизайн и внешний вид или функционал на первом месте?»<br/>
+            • «Как часто планируете использовать — ежедневно или по праздникам?»</div>
+            <div class="script-note">💡 Цель: понять, что именно ищет клиент, и подобрать оптимальную модель.</div>
+        </div>
+
+        <h2 class="section-title">💎 Этап 2: Презентация с опорой на ключевые преимущества</h2>
+
+        <div class="script-block">
+            <div class="script-question">🏆 О качестве (главное преимущество):</div>
+            <div class="script-answer">«OneTwo — это высочайшее качество. Посуда изготавливается из премиальных материалов: алюминиевый сплав 3003 (отличная коррозионная стойкость), нержавеющая сталь SUS304 по японским стандартам, боросиликатное стекло (очень сложно разбить). Всё безопасно для здоровья и прослужит долгие годы».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🎨 О дизайне и эргономике:</div>
+            <div class="script-answer">«Посуда OneTwo выглядит современно и стильно — она украсит любую кухню. При этом форма продумана до мелочей: удобные ручки, крышки, всё лежит в руке как надо. Это не просто красиво — это удобно каждый день. Конкурирует с такими брендами, как Taller, Nadoba, Tefal, а в чём-то даже превосходит их».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">💰 О цене и экономии:</div>
+            <div class="script-answer">«Как работает OneTwo? Мы работаем напрямую с фабриками без посредников, не тратим деньги на нерациональную рекламу, у нас налаженная логистика. Поэтому вы получаете качество как у премиальных брендов, но платите меньше. Лучшее соотношение цены и качества на рынке».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">📦 Об упаковке (для подарка или самопрезентации):</div>
+            <div class="script-answer">«Каждое изделие поставляется в индивидуальной стильной упаковке с фирменным дизайном. Это не только защищает посуду при транспортировке, но и выглядит очень достойно. Если покупаете в подарок — коробку не стыдно вручить. И на полке среди конкурентов сразу видно — выделяется».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🍳 О конкретных технологиях (например, линейка Moonstone):</div>
+            <div class="script-answer">«Посмотрите, например, линейку Moonstone. Толщина алюминиевого дна — 4,5 мм. Изделия не тяжёлые, но пища прогревается быстро и равномерно. Подходит для всех типов плит, включая индукционные. Очень удобно — одна сковорода на все случаи».</div>
+        </div>
+
+        <h2 class="section-title">🚫 Этап 3: Работа с частыми возражениями</h2>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Дороговато для российского бренда, возьму дешевле».</div>
+            <div class="script-answer">«Понимаю. Но давайте сравним: дешёвая посуда часто сделана из тонкого алюминия или пластика, быстро деформируется, покрытие царапается. OneTwo — это качественные материалы, которые прослужат годы. Вы платите за долговечность и безопасность. В дешёвой посуде через полгода придётся менять, а эта будет радовать вас и детей. Это инвестиция в комфорт».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Лучше куплю Tefal/Taller/Nadoba, они проверенные».</div>
+            <div class="script-answer">«Это отличные бренды. Но OneTwo — прямая альтернатива им по качеству и дизайну, а иногда мы их даже превосходим по эргономике. При этом цена ниже, потому что нет наценки за раскрученное имя. Посмотрите сами — та же нержавейка SUS304, то же боросиликатное стекло, та же продуманность. А разница в цене существенная. Зачем переплачивать?»</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «Не нравятся материалы / боюсь, что вредно».</div>
+            <div class="script-answer">«Можете не переживать. OneTwo использует только безопасные материалы: алюминиевый сплав 3003 (пищевой), нержавеющую сталь SUS304 (японский стандарт качества), боросиликатное стекло (химически инертно), силикон и бакелит (не выделяют токсинов). Всё сертифицировано и абсолютно безопасно для здоровья. Даже детское питание можно готовить».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">❌ «А вдруг сломается, где ремонтировать?»</div>
+            <div class="script-answer">«У нас есть официальная гарантия. Если что-то случится с посудой — обращайтесь, поможем. Но поверьте, качественные материалы и сборка делают поломку очень маловероятной. Это не одноразовая посуда — она сделана на годы».</div>
+        </div>
+
+        <h2 class="section-title">✅ Этап 4: Завершение сделки</h2>
+
+        <div class="script-block">
+            <div class="script-question">🔔 Фразы для закрытия продажи:</div>
+            <div class="script-answer">• «Эта посуда прослужит вам годы. Оформляем?»<br/>
+            • «Отличный выбор — качество и дизайн на высоте. Я провожу вас на кассу?»<br/>
+            • «Давайте упаковывать — оригинальная коробка прилагается».</div>
+        </div>
+
+        <div class="script-block">
+            <div class="script-question">🎁 Дополнительные продажи (апсейл):</div>
+            <div class="script-answer">«К этой сковороде рекомендуем взять крышку из той же серии — идеально подходит. Или, если берёте кастрюлю, посмотрите наши прихватки и лопатки из силикона — не царапают покрытие. Добавим в чек?»</div>
+        </div>
+
+        <h2 class="section-title">📌 Памятка продавцу (коротко)</h2>
+        <div class="feature-list">
+            <span class="feature-badge">1️⃣ Выявить, что именно ищет клиент (сковорода/кастрюля/набор)</span>
+            <span class="feature-badge">2️⃣ Сделать акцент на качестве материалов (SUS304, боросиликат)</span>
+            <span class="feature-badge">3️⃣ Показать эргономику и дизайн (сравнить с A-брендами)</span>
+            <span class="feature-badge">4️⃣ Объяснить экономию: прямые поставки, нет рекламы</span>
+            <span class="feature-badge">5️⃣ Упомянуть индивидуальную стильную упаковку</span>
+            <span class="feature-badge">6️⃣ Снять возражение про цену (качество vs бюджет)</span>
+            <span class="feature-badge">7️⃣ Закрывать уверенно: «Оформляем? На кассу?»</span>
+        </div>
+
+        <div class="insight-block" style="text-align: center; margin-top: 2rem;">
+            💬 <strong>Золотая фраза в конце разговора:</strong><br/>
+            «OneTwo — качественная посуда для вашей кухни!»
+        </div>
+    </div>
+</div>
+</body>
+</html>
