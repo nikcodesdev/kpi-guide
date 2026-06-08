@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Инструкция создания флешек ПО</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            color: #1e2a3a;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #b84500 0%, #d95b00 100%);
+            color: white;
+            padding: 2rem 2rem 1.8rem;
+            border-bottom: 6px solid #ffb347;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            border-left: 4px solid #ffb347;
+            padding-left: 1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 3px solid #d95b00;
+            display: inline-block;
+            color: #b84500;
+        }
+
+        .card {
+            background: #fef9f0;
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border: 1px solid #ffe0b3;
+        }
+
+        .card p {
+            margin: 0.5rem 0;
+        }
+
+        .list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.3rem;
+            position: relative;
+        }
+        .list li::before {
+            content: "•";
+            color: #d95b00;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+        }
+
+        .important {
+            background: #ffe0e0;
+            border-left: 4px solid #d95b00;
+            padding: 0.8rem 1.2rem;
+            border-radius: 0.8rem;
+            margin: 1rem 0;
+        }
+
+        .result {
+            background: #fff5e6;
+            border-left: 4px solid #d95b00;
+            padding: 0.8rem 1.2rem;
+            border-radius: 0.8rem;
+            margin: 1rem 0;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .link-item {
+            margin: 0.5rem 0;
+        }
+        .link-item a {
+            color: #d95b00;
+            text-decoration: none;
+        }
+        .link-item a:hover {
+            text-decoration: underline;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .video-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #d95b00 0%, #b84500 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(217, 91, 0, 0.3);
+        }
+
+        .video-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(217, 91, 0, 0.4);
+            background: linear-gradient(135deg, #e86800 0%, #d95b00 100%);
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #d95b00 0%, #b84500 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            box-shadow: 0 2px 8px rgba(217, 91, 0, 0.3);
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(217, 91, 0, 0.4);
+            background: linear-gradient(135deg, #e86800 0%, #d95b00 100%);
+        }
+
+        @media (max-width: 680px) {
+            .content {
+                padding: 1.2rem;
+            }
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            .video-button {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>💾 Инструкция создания флешек ПО</h1>
+        <div class="subtitle">ПК и Ноутбуки</div>
+    </div>
+
+    <div class="content">
+
+        <!-- Что нужно -->
+        <h2 class="section-title">📦 Что нужно</h2>
+        <div class="card">
+            <ul class="list">
+                <li>4 флешки на 128 ГБ (арт. 5450276) с USB 3.0 и выше</li>
+                <li>3 программы: драйвер пак SDI, Power installer, Windows 11</li>
+            </ul>
+        </div>
+
+        <!-- Что делаем -->
+        <h2 class="section-title">🔧 Что делаем</h2>
+        <div class="card">
+            <ul class="list">
+                <li><strong>1-я флешка</strong> — загрузочная с Windows 11. В корне создаём папку "!Drivers" и кладём туда SDI драйвер пак</li>
+                <li><strong>2-я флешка</strong> — скачиваем Power Installer</li>
+                <li><strong>Подписываем флешки!</strong> Делаем в 2-х экземплярах (итого 4 флешки на филиал)</li>
+            </ul>
+        </div>
+
+        <!-- Программа для создания загрузочной флешки -->
+        <h2 class="section-title">🛠️ Программа для создания загрузочной флешки</h2>
+        <div class="card">
+            <p>Для создания загрузочной флешки можно использовать программу:</p>
+            <ul class="list">
+                <li>USB Win10 Creator 4.1</li>
+                <li>USB Win10 Creator 5.0</li>
+            </ul>
+        </div>
+
+        <!-- Программа для проверки на битые пиксели -->
+        <h2 class="section-title">🖥️ Программа для проверки на битые пиксели ПК и Ноутбуки</h2>
+        <div class="card">
+            <p>Так же вы можете проверять ПК и Ноутбуки на наличие битых пикселей, программу вы можете скачать нажав на кнопку:</p>
+            <div style="margin-top: 0.8rem;">
+                <a href="PC.exe" class="download-button" download>
+                    ⬇️ СКАЧАТЬ
+                </a>
+            </div>
+        </div>
+
+        <!-- Ссылки -->
+        <h2 class="section-title">🔗 Ссылки</h2>
+        <div class="card">
+            <div class="link-item">📌 Windows 11 DNS образ: <a href="https://disk.yandex.ru/d/8hPwwMVeQEK5vQ" target="_blank">https://disk.yandex.ru/d/8hPwwMVeQEK5vQ</a></div>
+            <div class="link-item">📌 USB Win10 Creator 4.1: <a href="https://disk.yandex.ru/d/4vd5Sotz6ONd_w" target="_blank">https://disk.yandex.ru/d/4vd5Sotz6ONd_w</a></div>
+            <div class="link-item">📌 USB Win10 Creator 5.0: <a href="https://disk.yandex.ru/d/IHtAk_KxpZzVFw" target="_blank">https://disk.yandex.ru/d/IHtAk_KxpZzVFw</a></div>
+            <div class="link-item">📌 Драйвер пак SDI: <a href="https://driveroff.net/SDI_Update.torrent" target="_blank">https://driveroff.net/SDI_Update.torrent</a></div>
+            <div class="link-item">📌 Power Installer 25.11: <a href="https://disk.yandex.ru/d/vxsWXyxw1lhvLg" target="_blank">https://disk.yandex.ru/d/vxsWXyxw1lhvLg</a></div>
+        </div>
+
+        <!-- Важно -->
+        <div class="important">
+            <strong>⚠️ ВАЖНО:</strong><br/>
+            • Windows 11 используем ТОЛЬКО наш DNS образ<br/>
+            • Всё ПО должно быть свежим! Обновляем каждые 1-2 месяца
+        </div>
+
+        <!-- Результат -->
+        <div class="result">
+            ✅ Если всё сделано правильно — флешка будет работать автоматически.<br>
+            Установка Windows + драйверов занимает <strong>15 минут</strong>.
+        </div>
+
+        <!-- Кнопка видео по настройкам -->
+        <div class="button-container">
+            <a href="training-videos.html" class="video-button">
+                🎥 Видео по настройкам →
+            </a>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
