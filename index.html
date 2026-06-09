@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#d95b00">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Гайд по KPI">
+    <title>ГАЙД ПО KPI — кросс-сопутка и услуги</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .card {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: #d95b00;
+            padding: 20px 28px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .header-icon { font-size: 3rem; }
+        .header h1 { margin: 0 0 6px 0; font-size: 1.6rem; }
+        .header p { margin: 0; opacity: 0.9; font-size: 0.85rem; }
+        .header-right {
+            text-align: right;
+            font-size: 0.75rem;
+            opacity: 0.8;
+            border-left: 1px solid rgba(255,255,255,0.3);
+            padding-left: 15px;
+        }
+        .header-right .developer {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .content { padding: 25px; }
+        
+        /* Все блоки единообразные */
+        .stm-block, .services-block, .grade-block, .client-block, .cross-block, .sbp-block {
+            margin-top: 25px;
+            background: #fffaf5;
+            border-radius: 16px;
+            padding: 20px 25px;
+            border: 1px solid #f0e0d0;
+        }
+        .stm-block {
+            margin-top: 0;
+        }
+        .stm-title, .services-title, .grade-title, .client-title, .cross-title, .sbp-title {
+            font-weight: 700;
+            color: #d95b00;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+        .stm-title:hover, .services-title:hover, .grade-title:hover, .client-title:hover, .cross-title:hover, .sbp-title:hover {
+            opacity: 0.8;
+        }
+        .toggle-icon {
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+        .stm-content, .services-content, .grade-content, .client-content, .cross-content, .sbp-content {
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .stm-content.collapsed, .services-content.collapsed, .grade-content.collapsed, 
+        .client-content.collapsed, .cross-content.collapsed, .sbp-content.collapsed {
+            display: none;
+        }
+        
+        /* Текст внутри блока СТМ */
+        .stm-description {
+            color: #444;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Подзаголовок для кросс-сопутки */
+        .cross-subtitle {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 18px;
+            border-left: 3px solid #d95b00;
+            padding-left: 12px;
+        }
+        
+        /* Текст внутри блока Клиентская оценка */
+        .client-description {
+            color: #444;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Текст внутри блока Услуги над кнопками */
+        .services-header-text {
+            color: #444;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        /* Текст внутри блока 3 ГРЕЙД */
+        .grade-text {
+            color: #444;
+            line-height: 1.6;
+        }
+        .grade-text p {
+            margin: 12px 0;
+        }
+        .grade-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 15px 0;
+        }
+        .grade-list li {
+            margin: 10px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+        .grade-list li::before {
+            content: "•";
+            color: #d95b00;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 4px;
+            top: -2px;
+        }
+        .grade-level {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .grade-level-item {
+            margin: 12px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+        .grade-level-item::before {
+            content: "▹";
+            color: #d95b00;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .highlight {
+            color: #d95b00;
+            font-weight: 700;
+        }
+        .weight-badge {
+            display: inline-block;
+            background: #d95b00;
+            color: white;
+            border-radius: 20px;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        /* Две колонки внутри блока кросс-сопутки */
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .left-panel, .right-panel {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid #e8e8e8;
+            flex: 1;
+            min-width: 250px;
+        }
+        .left-panel { flex: 1; }
+        .right-panel { flex: 2; }
+        .panel-title {
+            font-weight: 700;
+            color: #d95b00;
+            margin-bottom: 15px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            background: white;
+            cursor: pointer;
+        }
+        select:focus { border-color: #d95b00; outline: none; }
+        
+        /* СПИСОК СОПУТСТВУЮЩИХ ТОВАРОВ — ТРИ КОЛОНКИ */
+        .accessories-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 5px;
+        }
+        .accessory-tag {
+            background: #f8f8f8;
+            border: 1px solid #eee;
+            border-radius: 30px;
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            color: #333;
+            text-align: center;
+            white-space: nowrap;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+        }
+        .accessory-tag:hover {
+            background: #fef2e8;
+            border-color: #d95b00;
+        }
+        .empty-message {
+            color: #999;
+            text-align: center;
+            padding: 40px;
+            width: 100%;
+            grid-column: 1 / -1;
+        }
+        
+        .services-buttons, .stm-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .client-btn {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 40px;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        /* Кнопки Услуг */
+        .service-btn {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 40px;
+            padding: 10px 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-align: center;
+            width: 210px;
+            white-space: normal;
+            word-break: break-word;
+            line-height: 1.3;
+        }
+        /* Кнопки СТМ */
+        .stm-btn {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 40px;
+            padding: 10px 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 105px;
+            white-space: normal;
+            word-break: break-word;
+            line-height: 1.3;
+        }
+        .service-btn:hover, .stm-btn:hover, .client-btn:hover {
+            background: #fef2e8;
+            border-color: #d95b00;
+            color: #d95b00;
+            transform: translateY(-1px);
+        }
+        .sbp-text { color: #444; line-height: 1.5; font-size: 0.9rem; }
+        .sbp-quote { background: #fff5ed; border-radius: 12px; padding: 12px; margin-top: 12px; }
+        .badge {
+            background: #d95b00;
+            color: white;
+            border-radius: 20px;
+            padding: 2px 10px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        /* Стили для блока входа по паролю */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-card {
+            background: white;
+            border-radius: 32px;
+            padding: 40px 32px;
+            max-width: 380px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid #f0e0d0;
+        }
+        .login-card .login-icon {
+            font-size: 4rem;
+            margin-bottom: 16px;
+        }
+        .login-card h2 {
+            color: #d95b00;
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+        }
+        .login-card p {
+            color: #666;
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+        }
+        .login-card input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .login-card input:focus {
+            outline: none;
+            border-color: #d95b00;
+        }
+        .login-card button {
+            background: #d95b00;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .login-card button:hover {
+            background: #c04e00;
+            transform: scale(0.98);
+        }
+        .error-msg {
+            color: #e53935;
+            font-size: 0.8rem;
+            margin-top: 12px;
+            display: none;
+        }
+        .main-content {
+            display: none;
+        }
+
+        /* Стили для выскакивающего окна обратной связи */
+        .feedback-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.3s, opacity 0.3s;
+        }
+        .feedback-overlay.show {
+            visibility: visible;
+            opacity: 1;
+        }
+        .feedback-card {
+            background: white;
+            border-radius: 28px;
+            padding: 32px 28px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border: 1px solid #f0e0d0;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+        .feedback-overlay.show .feedback-card {
+            transform: scale(1);
+        }
+        .feedback-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+        .feedback-card h3 {
+            color: #d95b00;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        .feedback-text {
+            color: #444;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        .feedback-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .feedback-btn {
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .feedback-btn-primary {
+            background: #d95b00;
+            color: white;
+        }
+        .feedback-btn-primary:hover {
+            background: #c04e00;
+            transform: translateY(-2px);
+        }
+        .feedback-btn-secondary {
+            background: #f0f0f0;
+            color: #555;
+            border: 1px solid #ddd;
+        }
+        .feedback-btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        @media (max-width: 900px) {
+            .accessories-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stm-btn {
+                width: 95px;
+                padding: 8px 5px;
+                font-size: 0.75rem;
+            }
+            .service-btn {
+                width: 180px;
+                padding: 8px 5px;
+                font-size: 0.75rem;
+            }
+            .client-btn {
+                white-space: normal;
+                text-align: center;
+                padding: 8px 12px;
+                font-size: 0.75rem;
+            }
+        }
+        @media (max-width: 700px) {
+            .content { padding: 15px; }
+            .left-panel, .right-panel { padding: 15px; }
+            /* На мобильных устройствах кнопки СТМ и Услуг — в две колонки */
+            .stm-buttons, .services-buttons {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .stm-btn {
+                width: 100%;
+                padding: 8px 4px;
+                font-size: 0.7rem;
+            }
+            .service-btn {
+                width: 100%;
+                padding: 8px 4px;
+                font-size: 0.7rem;
+            }
+            /* Кнопка памятки на мобильных — на всю ширину */
+            .client-btn {
+                width: 100%;
+                white-space: normal;
+                text-align: center;
+                padding: 10px 12px;
+                font-size: 0.75rem;
+            }
+            .header-icon { font-size: 2.5rem; }
+            .header-right { display: none; }
+            .login-card { padding: 28px 20px; }
+            .accessories-list {
+                grid-template-columns: 1fr;
+            }
+            .accessory-tag {
+                white-space: normal;
+                text-align: left;
+            }
+            .feedback-card { padding: 24px 20px; }
+            .feedback-btn { padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- БЛОК ВХОДА ПО ПАРОЛЮ -->
+<div id="loginOverlay" class="login-overlay">
+    <div class="login-card">
+        <div class="login-icon">🔐</div>
+        <h2>Доступ ограничен</h2>
+        <p>Введите пароль для входа</p>
+        <input type="password" id="passwordInput" placeholder="Пароль" autocomplete="off">
+        <button id="loginBtn">Войти</button>
+        <div id="errorMsg" class="error-msg">Неверный пароль. Попробуйте ещё раз.</div>
+    </div>
+</div>
+
+<!-- ВЫСКАКИВАЮЩЕЕ ОКНО ОБРАТНОЙ СВЯЗИ -->
+<div id="feedbackOverlay" class="feedback-overlay">
+    <div class="feedback-card">
+        <div class="feedback-icon">💡</div>
+        <h3>Есть идеи по улучшению?</h3>
+        <div class="feedback-text">
+            Будем благодарны, если оставите свою обратную связь в форме ниже.
+        </div>
+        <div class="feedback-buttons">
+            <a href="https://docs.google.com/spreadsheets/d/1eaAplZ50bjRgOHGguQIcEWHL8l6y6fSWc9bX3nGObPw/edit?usp=sharing" target="_blank" class="feedback-btn feedback-btn-primary" id="writeReviewBtn">📝 НАПИСАТЬ ОТЗЫВ</a>
+            <button class="feedback-btn feedback-btn-secondary" id="laterBtn">⏰ В СЛЕДУЮЩИЙ РАЗ</button>
+        </div>
+    </div>
+</div>
+
+<!-- ОСНОВНОЕ СОДЕРЖИМОЕ САЙТА -->
+<div id="mainContent" class="main-content">
+<div class="card">
+    <div class="header">
+        <div class="header-left">
+            <div class="header-icon">👽</div>
+            <div>
+                <h1>ГАЙД ПО KPI</h1>
+                <p>Повышай эффективность — масштабируй доход.</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="developer">Powered by РРС ЧИТА</div>
+        </div>
+    </div>
+    <div class="content">
+        <!-- БЛОК 1: СТМ -->
+        <div class="stm-block">
+            <div class="stm-title" id="stmTitle">
+                <span>🏷️ СТМ</span>
+                <span class="toggle-icon" id="stmIcon">▶</span>
+            </div>
+            <div class="stm-content collapsed" id="stmContent">
+                <div class="stm-description">
+                    DNS давно не является обычной коммерческой компанией. От конкурентов ее отличает наличие множества собственных торговых марок — СТМ. 
+                    Речь не о простом наклеивании шильдиков на готовые товары (хотя это, конечно, тоже есть). Компания производит собственную продукцию, 
+                    причем самого широкого спектра.
+                </div>
+                <div class="stm-buttons">
+                    <a href="DEXP.html" class="stm-btn">DEXP</a>
+                    <a href="EIGEN.html" class="stm-btn">EIGEN</a>
+                    <a href="FIERO.html" class="stm-btn">FIERO</a>
+                    <a href="FINEPOWER.html" class="stm-btn">FINEPOWER</a>
+                    <a href="KEYRON.html" class="stm-btn">KEYRON</a>
+                    <a href="ONETWO.html" class="stm-btn">ONETWO</a>
+                    <a href="REOKA.html" class="stm-btn">REOKA</a>
+                    <a href="SHEO.html" class="stm-btn">SHEO</a>
+                    <a href="KENSHI.html" class="stm-btn">KENSHI</a>
+                    <a href="ACELINE.html" class="stm-btn">ACELINE</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- БЛОК 2: УСЛУГИ -->
+        <div class="services-block">
+            <div class="services-title" id="servicesTitle">
+                <span>🛠️ Услуги</span>
+                <span class="toggle-icon" id="servicesIcon">▶</span>
+            </div>
+            <div class="services-content collapsed" id="servicesContent">
+                <div class="services-header-text">
+                    Продавай услуги уверенно — пользуйся инструментами ниже!
+                </div>
+                <div class="services-buttons">
+                    <a href="services_guide.html" class="service-btn">📖 Гайд по услугам</a>
+                    <a href="services_forbidden.html" class="service-btn">🚫 Запрещено при продаже услуг</a>
+                    <a href="training-videos.html" class="service-btn">🎓 Обучающие видео материалы</a>
+                    <a href="flash_preparation.html" class="service-btn">💻 ПО для Ноутбуков, Мониторов</a>
+                    <a href="https://drive.google.com/drive/folders/1Vei6GESPNYr0zClH_bADOy84MfYr_Atl" target="_blank" class="service-btn">📺 ПО для ТВ</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- БЛОК 3: 3 ГРЕЙД -->
+        <div class="grade-block">
+            <div class="grade-title" id="gradeTitle">
+                <span>🏆 3 ГРЕЙД</span>
+                <span class="toggle-icon" id="gradeIcon">▶</span>
+            </div>
+            <div class="grade-content collapsed" id="gradeContent">
+                <div class="grade-text">
+                    <p>Всего в компании есть 3 уровня оплаты труда (ГРЕЙДА). Чем выше уровень, тем выше фиксированная премия, соответственно выше заработная плата.</p>
+                    
+                    <div class="grade-level">
+                        <div class="grade-level-item"><strong class="highlight">1 уровень</strong> — ты получаешь, когда устраиваешься в компанию, на период адаптации.</div>
+                        <div class="grade-level-item"><strong class="highlight">2 уровень</strong> — ты получаешь, когда успешно заканчиваешь период адаптации и приступаешь к самостоятельной работе.</div>
+                        <div class="grade-level-item"><strong class="highlight">3 уровень</strong> — ты получаешь, когда начинаешь работать не только на количество личных продаж, но и на их качество. Оценка на 3 грейд проводится 1 раз в квартал.</div>
+                    </div>
+                    
+                    <p>Чтобы выйти на 3-й грейд, нужно целенаправленно улучшать три KPI.</p>
+                    
+                    <ul class="grade-list">
+                        <li><strong class="highlight">Услуги</strong> — 60% <span class="weight-badge">главный драйвер</span></li>
+                        <li><strong class="highlight">Чеки в час</strong> — 20%</li>
+                        <li><strong class="highlight">Строки в чеке</strong> — 20%</li>
+                    </ul>
+                    
+                    <p><strong>Правило простое:</strong> фокус на услугах даёт больше всего баллов. Остальные два показателя важны, но их вес в три раза меньше.</p>
+                    
+                    <p>Представьте корзину показателей на 3-й грейд. <strong class="highlight">60% её веса занимают услуги</strong> — это ваш главный результат. Оставшиеся 40% делятся пополам между чеками в час (20%) и строками в чеке (20%).</p>
+                    
+                    <p>Соответственно, без хороших показателей по услугам, выйти на 3-й грейд, даже при идеальных чеках и строках, будет довольно сложно.</p>
+                    
+                    <p><strong class="highlight">Как ты движешься в рейтинге на 3 грейд, какое количество баллов у тебя сейчас и на что нужно сделать упор, ты можешь уточнить у своего управляющего.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- БЛОК 4: КЛИЕНТСКАЯ ОЦЕНКА -->
+        <div class="client-block">
+            <div class="client-title" id="clientTitle">
+                <span>⭐ Клиентская оценка</span>
+                <span class="toggle-icon" id="clientIcon">▶</span>
+            </div>
+            <div class="client-content collapsed" id="clientContent">
+                <div class="client-description">
+                    Все указанные действия в памятке направлены на достижение положительной динамики и были сформированы на основе успешного опыта филиалов, демонстрирующих значительный рост оценки.
+                </div>
+                <div class="stm-buttons">
+                    <a href="client-service.html" class="client-btn">📖 Памятка сотрудника: выдача интернет-заказов</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- БЛОК 5: КРОСС-СОПУТКА -->
+        <div class="cross-block">
+            <div class="cross-title" id="crossTitle">
+                <span>🛍️ Кросс-сопутка</span>
+                <span class="toggle-icon" id="crossIcon">▶</span>
+            </div>
+            <div class="cross-content collapsed" id="crossContent">
+                <div class="cross-subtitle">Выберите основной товар — отобразится список сопутствующих товаров</div>
+                <div class="two-columns">
+                    <div class="left-panel">
+                        <div class="panel-title">📦 Основной товар</div>
+                        <select id="mainSelect"></select>
+                    </div>
+                    <div class="right-panel">
+                        <div class="panel-title">🛒 Сопутствующие товары <span class="badge" id="countBadge">0</span></div>
+                        <div id="accessoriesContainer" class="accessories-list">
+                            <div class="empty-message">Выберите основной товар</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- БЛОК 6: СБП -->
+        <div class="sbp-block">
+            <div class="sbp-title" id="sbpTitle">
+                <span>💳 СБП</span>
+                <span class="toggle-icon" id="sbpIcon">▶</span>
+            </div>
+            <div class="sbp-content collapsed" id="sbpContent">
+                <div class="sbp-text"><strong>Какой фразой и в какой момент предлагаем рассчитаться по СБП?</strong><br><br>
+                После презентации товара, в момент завершения сделки, спрашиваем у клиента: <strong>«Вам будет удобно рассчитаться по QR-коду?»</strong> Если да — проводим оплату.</div>
+                <div class="sbp-quote">💡 Если клиент не хочет рассчитываться СБП, расскажите про выгоду: <strong>ему будет намного проще и удобнее сделать возврат в дальнейшем</strong>, если техника сломается или не подойдёт по техническим характеристикам.</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    // ==============================================================
+    // СВОРАЧИВАНИЕ ВСЕХ БЛОКОВ (по умолчанию все свёрнуты)
+    // ==============================================================
+    
+    function setupCollapsible(titleId, contentId, iconId, defaultCollapsed = true) {
+        const title = document.getElementById(titleId);
+        const content = document.getElementById(contentId);
+        const icon = document.getElementById(iconId);
+        
+        if (defaultCollapsed) {
+            content.classList.add('collapsed');
+            icon.textContent = '▶';
+        } else {
+            content.classList.remove('collapsed');
+            icon.textContent = '▼';
+        }
+        
+        title.addEventListener('click', () => {
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                icon.textContent = '▼';
+            } else {
+                content.classList.add('collapsed');
+                icon.textContent = '▶';
+            }
+        });
+    }
+    
+    setupCollapsible('stmTitle', 'stmContent', 'stmIcon', true);
+    setupCollapsible('servicesTitle', 'servicesContent', 'servicesIcon', true);
+    setupCollapsible('gradeTitle', 'gradeContent', 'gradeIcon', true);
+    setupCollapsible('clientTitle', 'clientContent', 'clientIcon', true);
+    setupCollapsible('crossTitle', 'crossContent', 'crossIcon', true);
+    setupCollapsible('sbpTitle', 'sbpContent', 'sbpIcon', true);
+    
+    // ==============================================================
+    // ЗАЩИТА ПАРОЛЕМ + ВЫСКАКИВАЮЩЕЕ ОКНО
+    // ==============================================================
+    const CORRECT_PASSWORD = "chita2026";
+    
+    const loginOverlay = document.getElementById('loginOverlay');
+    const mainContent = document.getElementById('mainContent');
+    const passwordInput = document.getElementById('passwordInput');
+    const loginBtn = document.getElementById('loginBtn');
+    const errorMsg = document.getElementById('errorMsg');
+    const feedbackOverlay = document.getElementById('feedbackOverlay');
+    const laterBtn = document.getElementById('laterBtn');
+    
+    if (laterBtn) {
+        laterBtn.addEventListener('click', () => {
+            feedbackOverlay.classList.remove('show');
+        });
+    }
+    
+    function showFeedback() {
+        feedbackOverlay.classList.add('show');
+        sessionStorage.setItem('feedback_shown', 'true');
+    }
+    
+    function checkPassword() {
+        const enteredPassword = passwordInput.value;
+        if (enteredPassword === CORRECT_PASSWORD) {
+            loginOverlay.style.display = 'none';
+            mainContent.style.display = 'block';
+            sessionStorage.setItem('kpi_authenticated', 'true');
+            
+            if (sessionStorage.getItem('feedback_shown') !== 'true') {
+                setTimeout(() => {
+                    showFeedback();
+                }, 500);
+            }
+        } else {
+            errorMsg.style.display = 'block';
+            passwordInput.value = '';
+            passwordInput.focus();
+        }
+    }
+    
+    loginBtn.addEventListener('click', checkPassword);
+    passwordInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') checkPassword();
+    });
+    
+    if (sessionStorage.getItem('kpi_authenticated') === 'true') {
+        loginOverlay.style.display = 'none';
+        mainContent.style.display = 'block';
+        if (sessionStorage.getItem('feedback_shown') !== 'true') {
+            setTimeout(() => {
+                showFeedback();
+            }, 500);
+        }
+    } else {
+        loginOverlay.style.display = 'flex';
+        mainContent.style.display = 'none';
+    }
+
+    // ==============================================================
+    // ПОЛНАЯ БАЗА ДАННЫХ (все товары из файла сопутка 2.xlsx)
+    // ==============================================================
+    const dataMap = new Map();
+    function addPair(main, acc) { if (!dataMap.has(main)) dataMap.set(main, new Set()); dataMap.get(main).add(acc); }
+
+    // ----- Моноблок -----
+    addPair("Моноблок", "Наушники вкладыши"); addPair("Моноблок", "USB хаб"); addPair("Моноблок", "Внешний HDD");
+    addPair("Моноблок", "Внешний SSD"); addPair("Моноблок", "Установка Программ на компьютеры и ноутбуки");
+    addPair("Моноблок", "Разветвитель"); addPair("Моноблок", "Удлинитель"); addPair("Моноблок", "Держатель для проводов");
+    addPair("Моноблок", "Прямые услуги"); addPair("Моноблок", "Электронная карта - Подписка/Кошелёк");
+    addPair("Моноблок", "Наушники накладные"); addPair("Моноблок", "Чистящие средства для компьютера");
+    addPair("Моноблок", "Память USB Flash"); addPair("Моноблок", "Геймпад для ПК"); addPair("Моноблок", "ИБП");
+    addPair("Моноблок", "Коврик"); addPair("Моноблок", "Колонки"); addPair("Моноблок", "Маршрутизатор");
+    addPair("Моноблок", "Программное обеспечение"); addPair("Моноблок", "Кабель HDMI");
+    addPair("Моноблок", "Принтер Струйный Картриджный"); addPair("Моноблок", "МФУ Струйное Картриджное");
+    addPair("Моноблок", "Принтер Лазерный"); addPair("Моноблок", "МФУ Лазерное");
+
+    // ----- Смартфон -----
+    addPair("Смартфон", "Браслеты для мобильных устройств"); addPair("Смартфон", "Игровые аксессуары для мобильных устройств");
+    addPair("Смартфон", "Сим-карта"); addPair("Смартфон", "Монопод для селфи"); addPair("Смартфон", "Моногарнитура (Bluetooth)");
+    addPair("Смартфон", "Стилус"); addPair("Смартфон", "Линзы для мобильных устройств");
+    addPair("Смартфон", "Умные часы для мобильных устройств"); addPair("Смартфон", "Очки AR, VR");
+    addPair("Смартфон", "Держатель для мобильных устройств"); addPair("Смартфон", "Стабилизатор электронный");
+    addPair("Смартфон", "Колонки портативные"); addPair("Смартфон", "Установка Программ на мобильные устройства");
+    addPair("Смартфон", "Переходник питания"); addPair("Смартфон", "Электронная карта оплаты - Esim");
+    addPair("Смартфон", "Портативные источники света USB"); addPair("Смартфон", "Переходники для МУ");
+    addPair("Смартфон", "Разветвитель автомобильного прикуривателя"); addPair("Смартфон", "OTG аксессуар");
+    addPair("Смартфон", "Стереогарнитура (Bluetooth)"); addPair("Смартфон", "Осветитель для фото и видео");
+    addPair("Смартфон", "Прямые услуги"); addPair("Смартфон", "Перчатки для емкостных экранов, шапки");
+    addPair("Смартфон", "Аккумулятор для мобильных устройств"); addPair("Смартфон", "Чехол-аккумулятор");
+    addPair("Смартфон", "Электронная карта - Игра/Дополнение"); addPair("Смартфон", "Электронная карта - Подписка/Кошелёк");
+    addPair("Смартфон", "Стекло защитное"); addPair("Смартфон", "Наушники вкладыши"); addPair("Смартфон", "Наушники накладные");
+    addPair("Смартфон", "Кабель для мобильных устройств"); addPair("Смартфон", "Сетевое зарядное устройство для мобильных устройств");
+    addPair("Смартфон", "Чехол для GSM"); addPair("Смартфон", "Пленка защитная");
+    addPair("Смартфон", "Автомобильное зарядное устройство для мобильных устройств");
+    addPair("Смартфон", "Беспроводное зарядное устройство для мобильных устройств");
+    addPair("Смартфон", "Чистящие средства для компьютера"); addPair("Смартфон", "Память USB Flash");
+    addPair("Смартфон", "Карта памяти (Flash)"); addPair("Смартфон", "Программное обеспечение");
+    addPair("Смартфон", "Портативный аккумулятор"); addPair("Смартфон", "Аксессуар для GSM");
+    addPair("Смартфон", "Компактный фотопринтер"); addPair("Смартфон", "Защитный чехол");
+    addPair("Смартфон", "Беспроводное ЗУ"); addPair("Смартфон", "Защитное стекло");
+    addPair("Смартфон", "Наушники проводные/ TWS"); addPair("Смартфон", "Смарт часы(фитнес браслет)");
+    addPair("Смартфон", "Карта памяти"); addPair("Смартфон", "Колонка портативная");
+    addPair("Смартфон", "Триггеры"); addPair("Смартфон", "Штатив(трипод)"); addPair("Смартфон", "Кольцевая лампа");
+
+    // ----- Посудомоечная машина -----
+    addPair("Посудомоечная машина", "Набор для стиральных машин"); addPair("Посудомоечная машина", "Очиститель жира и накипи для ПММ");
+    addPair("Посудомоечная машина", "Подставки антивибрационные"); addPair("Посудомоечная машина", "Аквафильтр для КБТ");
+    addPair("Посудомоечная машина", "Шланг сливной"); addPair("Посудомоечная машина", "Демонтаж КБТ");
+    addPair("Посудомоечная машина", "Установка КБТ"); addPair("Посудомоечная машина", "Средство для стиральных машин");
+    addPair("Посудомоечная машина", "Удлинитель"); addPair("Посудомоечная машина", "Таблетки, гель, порошок, капсулы для ПММ");
+    addPair("Посудомоечная машина", "Шланг заливной"); addPair("Посудомоечная машина", "Ополаскиватель для ПММ");
+    addPair("Посудомоечная машина", "Первый пуск для ПММ"); addPair("Посудомоечная машина", "Соль для ПММ");
+    addPair("Посудомоечная машина", "Сетевой фильтр"); addPair("Посудомоечная машина", "Стабилизатор напряжения");
+
+    // ----- Планшет -----
+    addPair("Планшет", "Стилус"); addPair("Планшет", "sim адаптер"); addPair("Планшет", "Игровые аксессуары для мобильных устройств");
+    addPair("Планшет", "Сим-карта"); addPair("Планшет", "Моногарнитура (Bluetooth)"); addPair("Планшет", "Линзы для мобильных устройств");
+    addPair("Планшет", "Умные часы для мобильных устройств"); addPair("Планшет", "Браслеты для мобильных устройств");
+    addPair("Планшет", "Клавиатура для планшетного ПК"); addPair("Планшет", "Держатель для мобильных устройств");
+    addPair("Планшет", "Док-станция"); addPair("Планшет", "Док станция для МУ");
+    addPair("Планшет", "Установка Программ на мобильные устройства"); addPair("Планшет", "Переходник питания");
+    addPair("Планшет", "Чехол для планшета"); addPair("Планшет", "Средства для чистки оптики и матриц");
+    addPair("Планшет", "Переходники для МУ"); addPair("Планшет", "Разветвитель автомобильного прикуривателя");
+    addPair("Планшет", "OTG аксессуар"); addPair("Планшет", "Стереогарнитура (Bluetooth)");
+    addPair("Планшет", "Прямые услуги"); addPair("Планшет", "Перчатки для емкостных экранов, шапки");
+    addPair("Планшет", "Адаптер, преобразователь аудиосигнала"); addPair("Планшет", "Стекло защитное");
+    addPair("Планшет", "Наушники вкладыши"); addPair("Планшет", "Наушники накладные");
+    addPair("Планшет", "Кабель для мобильных устройств"); addPair("Планшет", "Сетевое зарядное устройство для мобильных устройств");
+    addPair("Планшет", "Bluetooth мышь"); addPair("Планшет", "Пленка защитная");
+    addPair("Планшет", "Автомобильное зарядное устройство для мобильных устройств");
+    addPair("Планшет", "Беспроводное зарядное устройство для мобильных устройств");
+    addPair("Планшет", "Чистящие средства для компьютера"); addPair("Планшет", "Память USB Flash");
+    addPair("Планшет", "Карта памяти (Flash)"); addPair("Планшет", "Клавиатура"); addPair("Планшет", "Мышь компьютерная");
+    addPair("Планшет", "Программное обеспечение"); addPair("Планшет", "Портативный аккумулятор");
+
+    // ----- Ноутбук -----
+    addPair("Ноутбук", "Внешний HDD"); addPair("Ноутбук", "Охлаждение для ноутбука");
+    addPair("Ноутбук", "Клавиатура+мышь"); addPair("Ноутбук", "USB хаб"); addPair("Ноутбук", "Рюкзак для ноутбука");
+    addPair("Ноутбук", "Внешний бокс для HDD"); addPair("Ноутбук", "Внешний оптический привод");
+    addPair("Ноутбук", "Сумка для планшета/ноутбука"); addPair("Ноутбук", "Внешний SSD");
+    addPair("Ноутбук", "Док-станция"); addPair("Ноутбук", "Твердотельный накопитель SSD");
+    addPair("Ноутбук", "Установка Программ на компьютеры и ноутбуки"); addPair("Ноутбук", "Виброплатформа");
+    addPair("Ноутбук", "Удлинитель"); addPair("Ноутбук", "Патч-корд"); addPair("Ноутбук", "Кабель USB");
+    addPair("Ноутбук", "Видео кабель"); addPair("Ноутбук", "Стереогарнитура (Bluetooth)");
+    addPair("Ноутбук", "Маршрутизатор 3G/4G/5G"); addPair("Ноутбук", "Чемоданы");
+    addPair("Ноутбук", "Программное обеспечение - Антивирус"); addPair("Ноутбук", "Программное обеспечение - Офис и делопроизводство");
+    addPair("Ноутбук", "Наушники накладные"); addPair("Ноутбук", "Оперативная память мобильная");
+    addPair("Ноутбук", "Bluetooth мышь"); addPair("Ноутбук", "Чехол для ноутбука");
+    addPair("Ноутбук", "Блок питания для ноутбука"); addPair("Ноутбук", "Чистящие средства для компьютера");
+    addPair("Ноутбук", "Память USB Flash"); addPair("Ноутбук", "Веб-камера"); addPair("Ноутбук", "Видеокарта");
+    addPair("Ноутбук", "Джойстик"); addPair("Ноутбук", "Клавиатура"); addPair("Ноутбук", "Коврик");
+    addPair("Ноутбук", "Колонки"); addPair("Ноутбук", "Маршрутизатор"); addPair("Ноутбук", "Микрофон");
+    addPair("Ноутбук", "Мышь компьютерная"); addPair("Ноутбук", "Аксессуар для клавиатуры");
+    addPair("Ноутбук", "Оперативная память"); addPair("Ноутбук", "Программное обеспечение");
+    addPair("Ноутбук", "Сетевая карта"); addPair("Ноутбук", "Сетевой фильтр"); addPair("Ноутбук", "Сумка для ноутбука");
+    addPair("Ноутбук", "Кабель HDMI"); addPair("Ноутбук", "Портативный аккумулятор");
+    addPair("Ноутбук", "Принтер Лазерный"); addPair("Ноутбук", "Принтер Струйный Картриджный");
+    addPair("Ноутбук", "МФУ Лазерное"); addPair("Ноутбук", "МФУ Струйное Картриджное");
+
+    // ----- Персональный компьютер -----
+    addPair("Персональный компьютер", "Док-станция"); addPair("Персональный компьютер", "Клавиатура+мышь");
+    addPair("Персональный компьютер", "USB хаб"); addPair("Персональный компьютер", "Офисное кресло");
+    addPair("Персональный компьютер", "Внешний HDD"); addPair("Персональный компьютер", "Компьютерный стол");
+    addPair("Персональный компьютер", "Внешний SSD"); addPair("Персональный компьютер", "Твердотельный накопитель SSD");
+    addPair("Персональный компьютер", "Крепление для монитора"); addPair("Персональный компьютер", "Установка Программ на компьютеры и ноутбуки");
+    addPair("Персональный компьютер", "Портативные источники света USB"); addPair("Персональный компьютер", "Разветвитель");
+    addPair("Персональный компьютер", "Удлинитель"); addPair("Персональный компьютер", "Патч-корд");
+    addPair("Персональный компьютер", "Видео кабель"); addPair("Персональный компьютер", "Игровое кресло");
+    addPair("Персональный компьютер", "Прямые услуги"); addPair("Персональный компьютер", "Усилитель для наушников");
+    addPair("Персональный компьютер", "Программное обеспечение - Антивирус"); addPair("Персональный компьютер", "Программное обеспечение - Офис и делопроизводство");
+    addPair("Персональный компьютер", "Наушники вкладыши"); addPair("Персональный компьютер", "Наушники накладные");
+    addPair("Персональный компьютер", "Игры"); addPair("Персональный компьютер", "Память USB Flash");
+    addPair("Персональный компьютер", "Веб-камера"); addPair("Персональный компьютер", "Видеокарта");
+    addPair("Персональный компьютер", "Геймпад для ПК"); addPair("Персональный компьютер", "Жесткий диск");
+    addPair("Персональный компьютер", "ИБП"); addPair("Персональный компьютер", "Кабель");
+    addPair("Персональный компьютер", "Клавиатура"); addPair("Персональный компьютер", "Коврик");
+    addPair("Персональный компьютер", "Колонки"); addPair("Персональный компьютер", "Маршрутизатор");
+    addPair("Персональный компьютер", "Микрофон"); addPair("Персональный компьютер", "Монитор");
+    addPair("Персональный компьютер", "Мышь компьютерная"); addPair("Персональный компьютер", "Оперативная память");
+    addPair("Персональный компьютер", "Программное обеспечение"); addPair("Персональный компьютер", "Сетевой фильтр");
+    addPair("Персональный компьютер", "Кабель HDMI"); addPair("Персональный компьютер", "Адаптер Wi-Fi");
+    addPair("Персональный компьютер", "Адаптер BlueTooth"); addPair("Персональный компьютер", "Конвертер, сплиттер, переключатель сигнала");
+    addPair("Персональный компьютер", "Офисный стол"); addPair("Персональный компьютер", "Принтер Струйный Картриджный");
+    addPair("Персональный компьютер", "МФУ Лазерное"); addPair("Персональный компьютер", "МФУ Струйное Картриджное");
+
+    // ----- Автоматическая стиральная машина -----
+    addPair("Автоматическая стиральная машина", "Набор для стиральных машин"); addPair("Автоматическая стиральная машина", "Очиститель жира и накипи для ПММ");
+    addPair("Автоматическая стиральная машина", "Подставки антивибрационные"); addPair("Автоматическая стиральная машина", "Салфетка против окрашивания");
+    addPair("Автоматическая стиральная машина", "Аквафильтр для КБТ"); addPair("Автоматическая стиральная машина", "Шланг сливной");
+    addPair("Автоматическая стиральная машина", "Демонтаж КБТ"); addPair("Автоматическая стиральная машина", "Установка КБТ");
+    addPair("Автоматическая стиральная машина", "Средство для стиральных машин"); addPair("Автоматическая стиральная машина", "Разветвитель");
+    addPair("Автоматическая стиральная машина", "Удлинитель"); addPair("Автоматическая стиральная машина", "Сетевой адаптер");
+    addPair("Автоматическая стиральная машина", "Капсулы,таблетки для стирки (замена на EY96597)"); addPair("Автоматическая стиральная машина", "Гель для стирки (замена на EY96597)");
+    addPair("Автоматическая стиральная машина", "Кондиционер для стирки (замена на EY96108)"); addPair("Автоматическая стиральная машина", "Пятновыводитель для стирки (замена на EY96108)");
+    addPair("Автоматическая стиральная машина", "Шланг заливной"); addPair("Автоматическая стиральная машина", "Ополаскиватель для ПММ");
+    addPair("Автоматическая стиральная машина", "Средство для очистки бытовой техники/приборов"); addPair("Автоматическая стиральная машина", "Прочие Аксессуары");
+    addPair("Автоматическая стиральная машина", "Средства для ухода за кофемашиной, кофеваркой и чайником"); addPair("Автоматическая стиральная машина", "Соль для ПММ");
+    addPair("Автоматическая стиральная машина", "Стиральный порошок (замена на EY96597)"); addPair("Автоматическая стиральная машина", "Машинка для удаления катышков");
+    addPair("Автоматическая стиральная машина", "Сушилка для белья"); addPair("Автоматическая стиральная машина", "Мешок-сетка для стирки");
+    addPair("Автоматическая стиральная машина", "Сетевой фильтр"); addPair("Автоматическая стиральная машина", "Стабилизатор напряжения");
+
+    // ----- Холодильник -----
+    addPair("Холодильник", "Установка КБТ"); addPair("Холодильник", "Подставки антивибрационные"); addPair("Холодильник", "Коврик антибактериальный");
+    addPair("Холодильник", "Аксессуары для холодильника"); addPair("Холодильник", "Демонтаж КБТ");
+    addPair("Холодильник", "Перенавеска дверей холодильника"); addPair("Холодильник", "Удлинитель");
+    addPair("Холодильник", "Средство для очистки бытовой техники/приборов"); addPair("Холодильник", "Прочие Аксессуары");
+    addPair("Холодильник", "Контейнеры для хранения пищевых продуктов/напитков"); addPair("Холодильник", "Фильтр-кувшин");
+    addPair("Холодильник", "Поглотитель запаха"); addPair("Холодильник", "Сетевой фильтр");
+    addPair("Холодильник", "Стабилизатор напряжения"); addPair("Холодильник", "Салфетка");
+
+    // ----- Встраиваемая посудомоечная машина -----
+    addPair("Встраиваемая посудомоечная машина", "Шланг сливной"); addPair("Встраиваемая посудомоечная машина", "Очиститель жира и накипи для ПММ");
+    addPair("Встраиваемая посудомоечная машина", "Подставки антивибрационные"); addPair("Встраиваемая посудомоечная машина", "Демонтаж КБТ");
+    addPair("Встраиваемая посудомоечная машина", "Установка КБТ"); addPair("Встраиваемая посудомоечная машина", "Средство для стиральных машин");
+    addPair("Встраиваемая посудомоечная машина", "Таблетки, гель, порошок, капсулы для ПММ"); addPair("Встраиваемая посудомоечная машина", "Шланг заливной");
+    addPair("Встраиваемая посудомоечная машина", "Фильтр магистральный"); addPair("Встраиваемая посудомоечная машина", "Ополаскиватель для ПММ");
+    addPair("Встраиваемая посудомоечная машина", "Первый пуск для ПММ"); addPair("Встраиваемая посудомоечная машина", "Соль для ПММ");
+
+    // ----- Телевизор -----
+    addPair("Телевизор", "Демонтаж КБТ"); addPair("Телевизор", "Клавиатура+мышь"); addPair("Телевизор", "Клавиатура для ТВ");
+    addPair("Телевизор", "Подсветка для ТВ"); addPair("Телевизор", "Антенный переходник"); addPair("Телевизор", "Чехол для пульта ДУ");
+    addPair("Телевизор", "Настройка телевизора"); addPair("Телевизор", "Настройки ТВ"); addPair("Телевизор", "Разветвитель");
+    addPair("Телевизор", "Удлинитель"); addPair("Телевизор", "Патч-корд"); addPair("Телевизор", "Аудиокабель");
+    addPair("Телевизор", "Маршрутизатор 3G/4G/5G"); addPair("Телевизор", "Прямые услуги"); addPair("Телевизор", "Умная колонка");
+    addPair("Телевизор", "Сплиттер антенный"); addPair("Телевизор", "ТВ антенна"); addPair("Телевизор", "Медиаплеер стационарный");
+    addPair("Телевизор", "Электронная карта - Подписка/Кошелёк"); addPair("Телевизор", "Кабель антенный");
+    addPair("Телевизор", "Пульт ДУ"); addPair("Телевизор", "Саундбар (Звуковая панель)"); addPair("Телевизор", "Кронштейн для ТВ");
+    addPair("Телевизор", "Чистящие средства для компьютера"); addPair("Телевизор", "Память USB Flash");
+    addPair("Телевизор", "Бытовые батарейки"); addPair("Телевизор", "Клавиатура"); addPair("Телевизор", "Маршрутизатор");
+    addPair("Телевизор", "Мышь компьютерная"); addPair("Телевизор", "Сетевой фильтр"); addPair("Телевизор", "Кабель HDMI");
+    addPair("Телевизор", "Стойки для ТВ"); addPair("Телевизор", "Тюнер цифрового телевидения"); addPair("Телевизор", "Тумбы для ТВ");
+    addPair("Телевизор", "Батарейки"); addPair("Телевизор", "Антенна"); addPair("Телевизор", "Приставка");
+    addPair("Телевизор", "ИБП"); addPair("Телевизор", "Чехол для пульта"); addPair("Телевизор", "Салфетки");
+    addPair("Телевизор", "Чистящее средство для экранов"); addPair("Телевизор", "Флеш- память"); addPair("Телевизор", "Светодиодная лента");
+
+    // ----- Плита электрическая -----
+    addPair("Плита электрическая", "Средство для керамики"); addPair("Плита электрическая", "Нож кухонный стальной");
+    addPair("Плита электрическая", "Сковорода вок"); addPair("Плита электрическая", "Сковорода-гриль");
+    addPair("Плита электрическая", "Сковорода блинная"); addPair("Плита электрическая", "Набор сковородок");
+    addPair("Плита электрическая", "Казан"); addPair("Плита электрическая", "Дистиллятор"); addPair("Плита электрическая", "Скребок");
+    addPair("Плита электрическая", "Карандаш для чистки комфорок"); addPair("Плита электрическая", "Демонтаж КБТ");
+    addPair("Плита электрическая", "Установка КБТ"); addPair("Плита электрическая", "Переходник для индукции");
+    addPair("Плита электрическая", "Средство для очистки бытовой техники/приборов"); addPair("Плита электрическая", "Турка");
+    addPair("Плита электрическая", "Пароварка наплитная"); addPair("Плита электрическая", "Средство для варочных поверхностей и духовок");
+    addPair("Плита электрическая", "Сковорода"); addPair("Плита электрическая", "Кастрюля"); addPair("Плита электрическая", "Набор посуды");
+    addPair("Плита электрическая", "Форма для выпекания"); addPair("Плита электрическая", "Контейнеры для хранения пищевых продуктов/напитков");
+    addPair("Плита электрическая", "Набор кухонных предметов"); addPair("Плита электрическая", "Разделочная доска");
+    addPair("Плита электрическая", "Набор кухонных ножей"); addPair("Плита электрическая", "Набор для подключения плит");
+    addPair("Плита электрическая", "Аксессуары для плит и варочных поверхностей"); addPair("Плита электрическая", "Ковш");
+    addPair("Плита электрическая", "Салфетка"); addPair("Плита электрическая", "Гейзерная кофеварка");
+    addPair("Плита электрическая", "Кухонная утварь(набор кастрюль, сковорода, половник и т.п.)"); addPair("Плита электрическая", "ТермоЩуп");
+    addPair("Плита электрическая", "Чистящее средство"); addPair("Плита электрическая", "Турка(гейзерная кофеварка)");
+
+    // ----- Варочная поверхность электрическая -----
+    addPair("Варочная поверхность электрическая", "Средство для керамики"); addPair("Варочная поверхность электрическая", "Сковорода вок");
+    addPair("Варочная поверхность электрическая", "Сковорода-гриль"); addPair("Варочная поверхность электрическая", "Сковорода блинная");
+    addPair("Варочная поверхность электрическая", "Набор сковородок"); addPair("Варочная поверхность электрическая", "Вытяжка");
+    addPair("Варочная поверхность электрическая", "Казан"); addPair("Варочная поверхность электрическая", "Дистиллятор");
+    addPair("Варочная поверхность электрическая", "Скребок"); addPair("Варочная поверхность электрическая", "Демонтаж КБТ");
+    addPair("Варочная поверхность электрическая", "Установка КБТ"); addPair("Варочная поверхность электрическая", "Средство для очистки бытовой техники/приборов");
+    addPair("Варочная поверхность электрическая", "Пароварка наплитная"); addPair("Варочная поверхность электрическая", "Сковорода");
+    addPair("Варочная поверхность электрическая", "Сотейник"); addPair("Варочная поверхность электрическая", "Кастрюля");
+    addPair("Варочная поверхность электрическая", "Набор посуды"); addPair("Варочная поверхность электрическая", "Прихватка");
+    addPair("Варочная поверхность электрическая", "Разделочная доска"); addPair("Варочная поверхность электрическая", "Набор кухонных ножей");
+    addPair("Варочная поверхность электрическая", "Набор для подключения плит"); addPair("Варочная поверхность электрическая", "Ковш");
+    addPair("Варочная поверхность электрическая", "Сетевой фильтр"); addPair("Варочная поверхность электрическая", "Салфетка");
+    addPair("Варочная поверхность электрическая", "Гейзерная кофеварка");
+
+    // ----- Стиральная машина -----
+    addPair("Стиральная машина", "Средство для первого запуска"); addPair("Стиральная машина", "Антивибрационные подставки");
+    addPair("Стиральная машина", "Шлаг заливной/сливной"); addPair("Стиральная машина", "Сетевой фильтр");
+    addPair("Стиральная машина", "Стабилизатор напряжения"); addPair("Стиральная машина", "Машинка для катышков");
+    addPair("Стиральная машина", "Соединительный элемент(если есть сушильная машина)");
+
+    // ----- Пылесос -----
+    addPair("Пылесос", "Сетевой фильтр"); addPair("Пылесос", "Фильтр для бытовых пылесосов");
+    addPair("Пылесос", "Пылесборник"); addPair("Пылесос", "Шампунь для моющих пылесосов");
+
+    // ----- Аэрогриль -----
+    addPair("Аэрогриль", "Кухонная утварь(щипцы, мерный кувшин, дозатор для масла)");
+    addPair("Аэрогриль", "Контейнеры для хранения пищи"); addPair("Аэрогриль", "Сетевой фильтр");
+    addPair("Аэрогриль", "Кухонные весы"); addPair("Аэрогриль", "Средство для очистки");
+
+    // ----- Микроволновая печь -----
+    addPair("Микроволновая печь", "Сетевой фильтр"); addPair("Микроволновая печь", "Крышка для СВЧ");
+    addPair("Микроволновая печь", "Кронштейн"); addPair("Микроволновая печь", "Кухонная утварь(стеклянная посуда, контейнер для приготовления яиц)");
+    addPair("Микроволновая печь", "Контейнеры для хранения пищи");
+
+    // ----- Утюг -----
+    addPair("Утюг", "Карандаш(чистящее средство)"); addPair("Утюг", "Гладильная доска");
+    addPair("Утюг", "Вода для глаженья"); addPair("Утюг", "Сушилка для белья");
+    addPair("Утюг", "Защитная насадка"); addPair("Утюг", "Очиститель накипи");
+    addPair("Утюг", "Сетевой фильтр"); addPair("Утюг", "Машинка для удаления катышков");
+
+    // ----- Ноутбук/ПК -----
+    addPair("Ноутбук/ПК", "Сумка"); addPair("Ноутбук/ПК", "Сетевой фильтр");
+    addPair("Ноутбук/ПК", "Мышка компьютерная"); addPair("Ноутбук/ПК", "Колонки");
+    addPair("Ноутбук/ПК", "Наушники проводные/беспроводные"); addPair("Ноутбук/ПК", "Принтер");
+    addPair("Ноутбук/ПК", "Анти-вирус (ПО- программное обеспечение)"); addPair("Ноутбук/ПК", "Охлаждение для ноутбука");
+    addPair("Ноутбук/ПК", "Маршрутизатор"); addPair("Ноутбук/ПК", "Сетевая карта");
+    addPair("Ноутбук/ПК", "Внешний SSD"); addPair("Ноутбук/ПК", "Флеш-память");
+    addPair("Ноутбук/ПК", "Чистящее средство для экранов"); addPair("Ноутбук/ПК", "Салфетки");
+    addPair("Ноутбук/ПК", "Клавиатура (ПК)"); addPair("Ноутбук/ПК", "Коврик");
+
+    // ----- МФУ(Принтер) -----
+    addPair("МФУ(Принтер)", "Картридж"); addPair("МФУ(Принтер)", "Сетевой фильтр");
+    addPair("МФУ(Принтер)", "Краска"); addPair("МФУ(Принтер)", "Бумага");
+    addPair("МФУ(Принтер)", "ИБП"); addPair("МФУ(Принтер)", "Кабель");
+    addPair("МФУ(Принтер)", "Фотобумага");
+
+    // ==============================================================
+    // ОСНОВНАЯ ЛОГИКА КРОСС-СОПУТКИ
+    // ==============================================================
+    const mainProducts = Array.from(dataMap.keys()).sort();
+    const selectEl = document.getElementById('mainSelect');
+    const container = document.getElementById('accessoriesContainer');
+    const countBadge = document.getElementById('countBadge');
+
+    mainProducts.forEach(p => { const opt = document.createElement('option'); opt.value = p; opt.textContent = p; selectEl.appendChild(opt); });
+
+    function updateAccessories() {
+        const selected = selectEl.value;
+        if (!selected) { container.innerHTML = '<div class="empty-message">Выберите основной товар</div>'; countBadge.textContent = '0'; return; }
+        const set = dataMap.get(selected);
+        if (!set || set.size === 0) { container.innerHTML = '<div class="empty-message">📭 Нет сопутствующих товаров</div>'; countBadge.textContent = '0'; return; }
+        const list = Array.from(set).sort();
+        countBadge.textContent = list.length;
+        container.innerHTML = '';
+        list.forEach(acc => { 
+            const tag = document.createElement('div'); 
+            tag.className = 'accessory-tag'; 
+            tag.textContent = acc; 
+            container.appendChild(tag); 
+        });
+    }
+
+    selectEl.addEventListener('change', updateAccessories);
+    if (mainProducts.length) { selectEl.value = mainProducts[0]; updateAccessories(); }
+
+    // PWA
+    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js').catch(e => console.log('SW error:', e)); }
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; });
+</script>
+</body>
+</html>
